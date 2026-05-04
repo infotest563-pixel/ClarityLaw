@@ -1,0 +1,804 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1440" />
+<title>Assault Lawyers Sunshine Coast | Clarity Law</title>
+<meta name="description" content="Charged with assault on the Sunshine Coast? Specialist criminal lawyers in Maroochydore. Fixed fees, 7-day availability. Call 1300 952 255.">
+<link rel="canonical" href="https://claritylaw.com.au/assault-lawyers-sunshine-coast/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LegalService","name":"Clarity Law — Assault Lawyers Sunshine Coast","description":"Specialist criminal defence lawyers in Maroochydore handling assault charges across the Sunshine Coast.","url":"https://claritylaw.com.au/assault-lawyers-sunshine-coast/","telephone":"+61-1300-952-255","priceRange":"Fixed fee quoted upfront","areaServed":[{"@type":"Place","name":"Sunshine Coast"},{"@type":"Place","name":"Maroochydore"},{"@type":"Place","name":"Noosa"},{"@type":"Place","name":"Caloundra"}],"address":{"@type":"PostalAddress","streetAddress":"Suite 4, 66 Duporth Avenue","addressLocality":"Maroochydore","addressRegion":"QLD","postalCode":"4558","addressCountry":"AU"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"1248"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Clarity Law — Sunshine Coast","image":"https://claritylaw.com.au/assets/logo.jpg","telephone":"+61-1300-952-255","address":{"@type":"PostalAddress","streetAddress":"Suite 4, 66 Duporth Avenue","addressLocality":"Maroochydore","addressRegion":"QLD","postalCode":"4558","addressCountry":"AU"},"geo":{"@type":"GeoCoordinates","latitude":-26.6582,"longitude":153.0894},"openingHours":"Mo-Su 07:00-19:00"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+ {"@type":"ListItem","position":1,"name":"Home","item":"https://claritylaw.com.au/"},
+ {"@type":"ListItem","position":2,"name":"Assault Charges","item":"https://claritylaw.com.au/assault-charges/"},
+ {"@type":"ListItem","position":3,"name":"Assault Lawyers Sunshine Coast","item":"https://claritylaw.com.au/assault-lawyers-sunshine-coast/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"Will I go to jail for an assault charge on the Sunshine Coast?","acceptedAnswer":{"@type":"Answer","text":"Not automatically. Sentencing in Sunshine Coast Magistrates and District Courts depends on the type of assault, your history, and the injuries. Many first-time and minor assault matters resolve without imprisonment when properly prepared."}},
+ {"@type":"Question","name":"Which court will I appear in if charged with assault in Maroochydore?","acceptedAnswer":{"@type":"Answer","text":"Most assault matters are heard at Sunshine Coast Magistrates Court on Caloundra Road, Maroochydore. Indictable matters such as GBH or serious assault committed for trial are heard at Maroochydore District Court. Some Noosa-area matters list at Noosa Magistrates Court."}},
+ {"@type":"Question","name":"How much does an assault lawyer cost on the Sunshine Coast?","acceptedAnswer":{"@type":"Answer","text":"Clarity Law quotes a fixed fee in writing before you commit. Common assault pleas in Maroochydore Magistrates start in the low thousands; AOBH and District Court matters are quoted individually. The first phone call is always free."}},
+ {"@type":"Question","name":"Can I get a no-conviction result for assault in Queensland?","acceptedAnswer":{"@type":"Answer","text":"Yes — under section 12 of the Penalties and Sentences Act, the court can sentence you without recording a conviction. It is most often available for common assault and minor AOBH where there is no significant prior history."}},
+ {"@type":"Question","name":"What should I do if I've been charged with assault on the Sunshine Coast?","acceptedAnswer":{"@type":"Answer","text":"Say nothing further to police beyond your name, date of birth and address. Keep your bail paperwork and Notice to Appear. Call us before your first mention so we can request the brief of evidence and advise on plea before you commit to anything."}},
+ {"@type":"Question","name":"Do you handle serious assault and GBH matters?","acceptedAnswer":{"@type":"Answer","text":"Yes. Steven Brough and the Clarity Law team handle every category of assault from common assault to grievous bodily harm and serious assault of police. Indictable matters from the Sunshine Coast are typically committed to Maroochydore District Court."}}]}
+</script>
+
+<style>
+  :root{
+    --ink:#0B1B2B; --ink-soft:#1F3348;
+    --paper:#FCFAF5; --paper-2:#F4EFE4; --rule:#E7E0D0;
+    --blue:#2563C9; --blue-deep:#1748A0; --blue-ink:#132B5E; --blue-soft:#EAF1FC;
+    --orange:#E8641E; --orange-deep:#C44E0F;
+    --gold:#C9A24B; --muted:#6B7280; --hair:1px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Inter Tight',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1360px;margin:0 auto;padding:0 40px}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted)}
+
+  .topbar{background:var(--blue-ink);color:#E9EEF9;font-size:12px;letter-spacing:0.04em}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:38px}
+  .topbar .left{display:flex;gap:22px;align-items:center}
+  .topbar .left .dot{width:6px;height:6px;border-radius:50%;background:var(--orange);display:inline-block;margin-right:8px;box-shadow:0 0 0 3px rgba(232,100,30,.22)}
+  .topbar .right{display:flex;gap:22px;align-items:center;opacity:.9}
+  nav.primary{border-bottom:var(--hair) solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:40}
+  nav.primary .wrap{display:flex;align-items:center;justify-content:space-between;height:92px}
+  .logo img{height:46px;width:auto;display:block}
+  .navlinks{display:flex;gap:34px;align-items:center}
+  .navlinks a{font-size:14px;font-weight:500;color:var(--ink);padding:6px 0}
+  .navlinks a.first{color:var(--orange);font-weight:600}
+  .navlinks a.first::before{content:"";width:6px;height:6px;background:var(--orange);border-radius:50%;display:inline-block;margin-right:8px;vertical-align:middle;animation:pulse 2.2s infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.7)}}
+  .navlinks a:hover{color:var(--blue)}
+  .nav-cta{background:var(--orange);color:#fff;padding:12px 20px;font-weight:600;font-size:13px;letter-spacing:0.02em;box-shadow:0 1px 0 #B84A10 inset, 0 8px 16px -8px rgba(232,100,30,.5)}
+  .nav-cta:hover{background:var(--orange-deep)}
+
+  .crumbs{background:var(--paper);border-bottom:1px solid var(--rule);font-size:12px;color:var(--muted);letter-spacing:0.04em}
+  .crumbs .wrap{height:44px;display:flex;align-items:center;gap:10px}
+  .crumbs a:hover{color:var(--ink)}
+  .crumbs .sep{opacity:.4}
+  .crumbs .here{color:var(--ink);font-weight:500}
+
+  .hero{position:relative;padding:70px 0 80px;background:
+    radial-gradient(900px 400px at 90% 0%, rgba(232,100,30,.06), transparent 60%),
+    radial-gradient(800px 360px at 0% 100%, rgba(37,99,201,.06), transparent 60%),
+    var(--paper);overflow:hidden}
+  .hero .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:70px;align-items:start;position:relative;z-index:1}
+  .hero-left .kicker{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+  .hero-left .kicker .line{height:1px;width:52px;background:var(--ink);opacity:.3}
+  .hero h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(44px,5vw,76px);line-height:1.02;letter-spacing:-0.025em;margin:0 0 24px;color:var(--ink)}
+  .hero h1 em{font-style:italic;color:var(--blue)}
+  .hero h1 .u{position:relative;display:inline-block}
+  .hero h1 .u::after{content:"";position:absolute;left:-2px;right:-2px;bottom:4px;height:12px;background:var(--orange);opacity:.22;z-index:-1;transform:skew(-4deg)}
+  .hero-lede{font-size:18px;line-height:1.6;color:var(--ink-soft);max-width:560px;margin:0 0 28px}
+  .hero-lede strong{color:var(--ink)}
+
+  .office-card{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:8px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .office-card .f{padding:22px 24px 22px 0;border-right:1px solid var(--rule)}
+  .office-card .f:nth-child(2n){border-right:none;padding-right:0;padding-left:24px}
+  .office-card .f .l{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .office-card .f .n{font-family:'Instrument Serif',serif;font-size:22px;line-height:1.15;color:var(--ink);letter-spacing:-0.01em}
+  .office-card .f .n a{color:var(--blue);font-weight:600}
+  .office-card .f .s{font-size:13px;color:var(--ink-soft);margin-top:4px;line-height:1.45}
+
+  .hero-form{background:#fff;border:1px solid var(--rule);padding:30px 28px 26px;box-shadow:0 30px 60px -30px rgba(19,43,94,.2);position:sticky;top:112px}
+  .hero-form::before{content:"";position:absolute;top:-1px;left:-1px;right:-1px;height:4px;background:linear-gradient(90deg,var(--orange) 0 45%,var(--blue) 45% 100%)}
+  .hero-form .hdr{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .hero-form .hdr .pulse{width:9px;height:9px;background:#22C55E;border-radius:50%;box-shadow:0 0 0 4px rgba(34,197,94,.18);animation:pulse 1.8s infinite}
+  .hero-form .hdr .lbl{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft)}
+  .hero-form h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:28px;margin:2px 0 6px;letter-spacing:-0.01em;line-height:1.15}
+  .hero-form p.sm{font-size:13px;color:var(--ink-soft);margin:0 0 20px;line-height:1.55}
+  .hero-form p.sm strong{color:var(--orange-deep)}
+  .hf-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+  .hf-field{position:relative}
+  .hf-field label{position:absolute;top:-7px;left:10px;background:#fff;padding:0 6px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);z-index:2}
+  .hf-field input,.hf-field select,.hf-field textarea{width:100%;border:1px solid var(--rule);background:#fff;padding:12px 12px;font:inherit;font-size:14px;color:var(--ink);outline:none;transition:border .15s;border-radius:0}
+  .hf-field textarea{resize:vertical;min-height:74px;font-family:'Inter Tight',sans-serif}
+  .hf-field input:focus,.hf-field select:focus,.hf-field textarea:focus{border-color:var(--blue)}
+  .hf-submit{width:100%;background:var(--orange);color:#fff;border:none;padding:16px;font:inherit;font-weight:600;font-size:14px;cursor:pointer;margin-top:10px;letter-spacing:0.02em;box-shadow:0 1px 0 #B84A10 inset}
+  .hf-submit:hover{background:var(--orange-deep)}
+  .hf-foot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:11px;color:var(--muted);letter-spacing:0.02em}
+  .hero-form .call-line{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);text-align:center;font-size:13px;color:var(--ink-soft)}
+  .hero-form .call-line a{color:var(--blue);font-weight:600;font-size:18px;font-family:'Instrument Serif',serif}
+
+  .proof{background:var(--blue-ink);color:#E9EEF9;border-top:1px solid rgba(255,255,255,.06)}
+  .proof .wrap{display:grid;grid-template-columns:repeat(5,1fr);padding:26px 40px}
+  .proof .cell{display:flex;align-items:center;gap:14px;padding:8px 22px;border-right:1px solid rgba(255,255,255,.08)}
+  .proof .cell:last-child{border-right:none}
+  .proof .icon{width:42px;height:42px;flex:none;display:grid;place-items:center;background:rgba(232,100,30,.16);color:var(--orange);border:1px solid rgba(232,100,30,.3)}
+  .proof .txt .n{font-family:'Instrument Serif',serif;font-size:22px;line-height:1;color:#fff}
+  .proof .txt .n em{color:var(--orange);font-style:normal}
+  .proof .txt .l{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#B8C3D6;margin-top:6px}
+
+  /* CHARGE LIST (sub-section) */
+  .charges{padding:120px 0;background:var(--paper)}
+  .charges .head{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:flex-end;margin-bottom:56px}
+  .charges h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:60px;line-height:1.04;letter-spacing:-0.02em;margin:14px 0 0}
+  .charges h2 em{color:var(--blue);font-style:italic}
+  .charges .head p{font-size:16px;color:var(--ink-soft);line-height:1.6;margin:0;max-width:460px}
+  .chg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .chg{background:#fff;border:1px solid var(--rule);padding:28px 26px 24px;display:flex;flex-direction:column;gap:14px;position:relative;transition:transform .2s,border-color .2s,box-shadow .2s;cursor:pointer;text-decoration:none;color:inherit}
+  .chg:hover{transform:translateY(-3px);border-color:var(--blue);box-shadow:0 18px 32px -18px rgba(37,99,201,.25)}
+  .chg .tag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;color:var(--orange);text-transform:uppercase}
+  .chg h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:26px;margin:0;letter-spacing:-0.01em;line-height:1.12}
+  .chg .desc{font-size:13.5px;color:var(--ink-soft);line-height:1.5;flex:1}
+  .chg .meta{display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding-top:14px;border-top:1px solid var(--rule)}
+  .chg .max{color:var(--ink);font-weight:600}
+  .chg .arrow{color:var(--blue)}
+  .chg:hover .arrow{color:var(--orange)}
+  .chg.featured{background:var(--blue-ink);color:#fff;border-color:var(--blue-ink)}
+  .chg.featured h3{color:#fff}
+  .chg.featured .desc{color:#B8C3D6}
+  .chg.featured .meta{border-top-color:rgba(255,255,255,.12);color:#B8C3D6}
+  .chg.featured .max{color:#fff}
+  .chg.featured .tag{color:var(--orange)}
+  .chg.featured .arrow{color:var(--orange)}
+
+  /* COURTS */
+  .courts{background:var(--blue-soft);padding:120px 0;position:relative;overflow:hidden}
+  .courts::before{content:"";position:absolute;right:-200px;top:-200px;width:500px;height:500px;background:radial-gradient(circle,rgba(232,100,30,.07),transparent 60%);pointer-events:none}
+  .courts .wrap{position:relative}
+  .courts .head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:flex-end;margin-bottom:56px}
+  .courts h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:58px;line-height:1.04;letter-spacing:-0.02em;margin:12px 0 0}
+  .courts h2 em{color:var(--orange);font-style:italic}
+  .courts .head p{font-size:16px;color:var(--ink-soft);line-height:1.6;margin:0}
+  .court-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .court{background:#fff;border:1px solid var(--rule);padding:32px 30px;display:flex;flex-direction:column;gap:12px;position:relative}
+  .court::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange)}
+  .court .tag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange)}
+  .court h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:28px;line-height:1.1;margin:2px 0 4px;letter-spacing:-0.01em}
+  .court .addr{font-size:13.5px;color:var(--ink-soft);line-height:1.5}
+  .court ul{list-style:none;padding:0;margin:8px 0 0;display:flex;flex-direction:column;gap:8px}
+  .court ul li{font-size:13.5px;color:var(--ink-soft);line-height:1.5;padding-left:18px;position:relative}
+  .court ul li::before{content:"";position:absolute;left:0;top:7px;width:8px;height:8px;background:var(--blue);border-radius:50%}
+  .court .meta{display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding-top:14px;border-top:1px solid var(--rule);margin-top:auto}
+  .court .meta strong{color:var(--ink);font-weight:600}
+
+  /* SUBURBS BAND */
+  .suburbs{background:var(--paper);padding:90px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .suburbs .grid{display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:center}
+  .suburbs h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:48px;line-height:1.04;letter-spacing:-0.02em;margin:12px 0 14px}
+  .suburbs h2 em{color:var(--blue);font-style:italic}
+  .suburbs p{font-size:15px;color:var(--ink-soft);line-height:1.6;margin:0}
+  .suburb-cloud{display:flex;flex-wrap:wrap;gap:8px}
+  .suburb-cloud a{background:#fff;border:1px solid var(--rule);padding:9px 16px;font-size:13.5px;color:var(--ink);transition:border-color .15s,color .15s}
+  .suburb-cloud a:hover{border-color:var(--orange);color:var(--orange)}
+
+  /* APPROACH (Steven block + 3 pillars) reused */
+  .approach{background:var(--blue-soft);padding:120px 0;position:relative;overflow:hidden}
+  .approach .head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:flex-end;margin-bottom:64px}
+  .approach h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:58px;line-height:1.04;letter-spacing:-0.02em;margin:12px 0 0}
+  .approach h2 em{color:var(--orange);font-style:italic}
+  .approach .head p{font-size:16px;color:var(--ink-soft);line-height:1.6;margin:0}
+  .approach-intro{display:grid;grid-template-columns:0.9fr 1.1fr;gap:60px;align-items:center;margin-bottom:60px;padding:44px 48px;background:#fff;border:1px solid var(--rule);position:relative;overflow:hidden}
+  .approach-intro::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--orange)}
+  .steven-portrait{position:relative;aspect-ratio:4/5;background:linear-gradient(160deg,#F4EFE4 0%, #E9E3D2 100%);overflow:visible}
+  .steven-portrait::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 20%,rgba(232,100,30,.14),transparent 55%);z-index:1}
+  .steven-portrait img{width:100%;height:100%;object-fit:cover;object-position:center top;position:relative;z-index:2}
+  .steven-portrait .sig{position:absolute;left:-6px;top:-28px;z-index:3;font-family:'Caveat',cursive;font-size:26px;color:#fff;background:var(--blue);padding:5px 18px 7px;letter-spacing:0.01em;transform:rotate(-1.5deg);box-shadow:3px 3px 10px rgba(0,0,0,.18);white-space:nowrap}
+  .steven-portrait .caption{position:absolute;left:16px;bottom:16px;right:16px;z-index:3;background:rgba(252,250,245,.96);padding:12px 16px;border-left:3px solid var(--orange)}
+  .steven-portrait .caption .q{font-family:'Instrument Serif',serif;font-size:15px;color:var(--ink);line-height:1.3;font-style:italic}
+  .steven-portrait .caption .r{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .approach-intro .words h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:38px;line-height:1.1;letter-spacing:-0.015em;margin:0 0 16px;color:var(--ink)}
+  .approach-intro .words h3 em{color:var(--blue);font-style:italic}
+  .approach-intro .words p{font-size:15px;color:var(--ink-soft);line-height:1.65;margin:0 0 12px}
+  .approach-intro .creds{display:flex;gap:32px;margin-top:24px;padding-top:22px;border-top:1px solid var(--rule)}
+  .approach-intro .creds .c .n{font-family:'Instrument Serif',serif;font-size:30px;color:var(--blue);line-height:1}
+  .approach-intro .creds .c .n em{color:var(--orange);font-style:normal}
+  .approach-intro .creds .c .l{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+
+  /* OUTCOMES */
+  .outcomes{background:var(--paper);padding:100px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .outcomes .head{text-align:center;max-width:720px;margin:0 auto 56px}
+  .outcomes h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:52px;line-height:1.04;letter-spacing:-0.02em;margin:12px 0 14px}
+  .outcomes h2 em{color:var(--blue);font-style:italic}
+  .outcomes .head p{font-size:15px;color:var(--ink-soft);line-height:1.6;margin:0}
+  .out-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .out{background:#fff;border:1px solid var(--rule);padding:32px 28px;position:relative;overflow:hidden}
+  .out::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange)}
+  .out .charge{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange)}
+  .out .outcome{font-family:'Instrument Serif',serif;font-size:30px;line-height:1.15;margin:10px 0 10px;letter-spacing:-0.01em;color:var(--ink)}
+  .out .outcome em{color:var(--blue);font-style:italic}
+  .out .det{font-size:13.5px;color:var(--ink-soft);line-height:1.55;margin-bottom:18px}
+  .out .foot{display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding-top:14px;border-top:1px solid var(--rule)}
+  .out .court{color:var(--ink);font-weight:600}
+  .out-note{text-align:center;margin-top:32px;font-size:12px;color:var(--muted);font-style:italic}
+
+  /* FAQ */
+  .faq{background:var(--blue-ink);color:#E9EEF9;padding:120px 0;position:relative;overflow:hidden}
+  .faq::before{content:"";position:absolute;left:-200px;bottom:-200px;width:500px;height:500px;background:radial-gradient(circle,rgba(232,100,30,.08),transparent 60%);pointer-events:none}
+  .faq .wrap{display:grid;grid-template-columns:0.8fr 1.2fr;gap:80px;align-items:flex-start;position:relative}
+  .faq-left{position:sticky;top:112px}
+  .faq-left .eyebrow{color:#B8C3D6}
+  .faq h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:56px;line-height:1.04;letter-spacing:-0.02em;margin:14px 0 24px;color:#fff}
+  .faq h2 em{color:var(--orange);font-style:italic}
+  .faq .sub{font-size:16px;color:#B8C3D6;line-height:1.6;max-width:380px;margin:0 0 32px}
+  .faq-cta{background:var(--orange);color:#fff;padding:16px 24px;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:10px;box-shadow:0 1px 0 #B84A10 inset, 0 14px 28px -12px rgba(232,100,30,.5)}
+  .faq-cta:hover{background:var(--orange-deep)}
+  .faq-list{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(255,255,255,.12)}
+  details.qa{border-bottom:1px solid rgba(255,255,255,.12);padding:24px 0}
+  details.qa[open]{padding-bottom:28px}
+  details.qa summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:flex-start;gap:24px;font-family:'Instrument Serif',serif;font-size:24px;line-height:1.2;color:#fff;letter-spacing:-0.01em}
+  details.qa summary::-webkit-details-marker{display:none}
+  details.qa summary .icon{flex:none;width:32px;height:32px;border:1px solid rgba(255,255,255,.25);display:grid;place-items:center;font-size:18px;color:var(--orange);transition:transform .3s,background .2s;margin-top:3px}
+  details.qa[open] summary .icon{background:var(--orange);color:#fff;border-color:var(--orange);transform:rotate(45deg)}
+  details.qa summary:hover .icon{border-color:var(--orange)}
+  details.qa .body{font-size:15px;color:#c6d0e4;line-height:1.65;margin-top:16px;max-width:640px}
+  details.qa .body p{margin:0 0 10px}
+  details.qa .body strong{color:#fff}
+
+  /* REVIEWS */
+  .reviews{background:var(--paper-2);padding:110px 0;overflow:hidden}
+  .reviews .head{display:flex;justify-content:space-between;align-items:flex-end;margin:0 auto 48px;padding:0 40px;max-width:1360px;gap:40px}
+  .reviews h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:56px;line-height:1.04;margin:10px 0 0;letter-spacing:-0.02em}
+  .reviews h2 em{color:var(--orange);font-style:italic}
+  .reviews .gmeta{display:flex;gap:20px;align-items:center;font-size:13px;color:var(--ink-soft)}
+  .reviews .gmeta .stars{color:var(--orange);letter-spacing:2px;font-size:15px}
+  .marquee{position:relative;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+  .marquee .track{display:flex;gap:24px;width:max-content;animation:slide 60s linear infinite}
+  .marquee.reverse .track{animation:slide-r 65s linear infinite}
+  .marquee + .marquee{margin-top:24px}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @keyframes slide-r{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+  .card{flex:none;width:420px;background:#fff;padding:26px 28px;border:1px solid var(--rule);display:flex;flex-direction:column;gap:14px}
+  .card .top{display:flex;justify-content:space-between;align-items:center}
+  .card .who{display:flex;align-items:center;gap:12px}
+  .card .av{width:36px;height:36px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:600;font-size:13px}
+  .card .nm{font-weight:600;font-size:14px}
+  .card .dt{font-size:11px;color:var(--muted);letter-spacing:0.08em}
+  .card .stars{color:var(--orange);letter-spacing:2px}
+  .card blockquote{margin:0;font-size:15px;line-height:1.55;color:var(--ink-soft)}
+  .card .g{font-size:11px;color:var(--muted);letter-spacing:0.14em}
+
+  /* CTA BAND */
+  .cta-band{background:var(--ink);color:#fff;padding:80px 0;position:relative;overflow:hidden}
+  .cta-band::before{content:"";position:absolute;right:-100px;top:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(232,100,30,.22),transparent 60%);pointer-events:none}
+  .cta-band .wrap{display:grid;grid-template-columns:1.4fr auto;gap:60px;align-items:center;position:relative}
+  .cta-band h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:52px;line-height:1.06;letter-spacing:-0.02em;margin:0;max-width:720px}
+  .cta-band h2 em{color:var(--orange);font-style:italic}
+  .cta-band .btns{display:flex;gap:14px;align-items:center}
+  .btn-orange{background:var(--orange);color:#fff;padding:18px 28px;font-weight:600;font-size:14px;display:inline-flex;gap:10px;align-items:center;box-shadow:0 1px 0 #B84A10 inset,0 18px 32px -12px rgba(232,100,30,.5)}
+  .btn-orange:hover{background:var(--orange-deep)}
+  .btn-outline{padding:18px 26px;font-weight:600;font-size:14px;border:1px solid rgba(255,255,255,.3);color:#fff;display:inline-flex;gap:10px;align-items:center}
+  .btn-outline:hover{border-color:#fff}
+
+  /* OFFICES (full QLD map block) */
+  .offices{background:var(--blue-soft);padding:120px 0;position:relative;overflow:hidden}
+  .offices .head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:flex-end;margin-bottom:60px}
+  .offices h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:56px;line-height:1.04;letter-spacing:-0.02em;margin:12px 0 0}
+  .offices h2 em{color:var(--blue);font-style:italic}
+  .offices .head p{font-size:16px;color:var(--ink-soft);line-height:1.6;margin:0;max-width:420px}
+  .offices .body{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
+  .map-wrap{position:relative;aspect-ratio:1/1;background:#CFE4F1;overflow:hidden;border:1px solid var(--rule)}
+  #qld-map{width:100%;height:100%;position:absolute;inset:0}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:#C7D2E4;padding:80px 0 40px;border-top:1px solid rgba(255,255,255,.08)}
+  footer .wrap{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:60px}
+  footer h4{font-family:'Instrument Serif',serif;font-weight:400;font-size:22px;color:#fff;margin:0 0 20px}
+  footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;font-size:14px}
+  footer ul a:hover{color:#fff}
+  footer .brand img{height:42px;filter:brightness(0) invert(1) opacity(0.95);margin-bottom:18px}
+  footer .brand p{font-size:14px;line-height:1.6;color:#8FA1BE;max-width:320px}
+  footer .bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:60px;padding-top:24px;display:flex;justify-content:space-between;font-size:12px;color:#7a8aa5}
+
+  /* Up-link breadcrumb-style row inline above charges */
+  .uplinks{background:var(--paper);padding:36px 0 0;border-top:1px solid var(--rule)}
+  .uplinks .row{display:flex;flex-wrap:wrap;gap:18px;align-items:center;font-size:13px;color:var(--muted);letter-spacing:0.04em}
+  .uplinks .row .lab{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--orange)}
+  .uplinks .row a{padding:8px 14px;border:1px solid var(--rule);background:#fff;color:var(--ink);font-weight:500}
+  .uplinks .row a:hover{border-color:var(--orange);color:var(--orange)}
+</style>
+</head>
+<body data-screen-label="Assault Lawyers Sunshine Coast">
+
+  <div class="topbar">
+    <div class="wrap">
+      <div class="left"><span><span class="dot"></span>Sunshine Coast — available 7 days</span></div>
+      <div class="right">
+        <a href="#">Brisbane · Gold Coast · Sunshine Coast · Ipswich · Logan · North Brisbane · Toowoomba · Hervey Bay</a>
+        <a href="tel:1300952255">☎ 1300 952 255</a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="primary">
+    <div class="wrap">
+      <a href="Home.html" class="logo" aria-label="Clarity Law"><img src="assets/logo.jpg" alt="Clarity Law"></a>
+      <div class="navlinks">
+        <a href="#" class="first">First Charge?</a>
+        <a href="Team.html">Team</a>
+        <a href="Assault.html">Services</a>
+        <a href="#">Locations</a>
+        <a href="legal-fees.html">Pricing</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="nav-cta">Request a Callback ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="crumbs">
+    <div class="wrap">
+      <a href="Home.html">Home</a>
+      <span class="sep">/</span>
+      <a href="Assault.html">Assault Charges</a>
+      <span class="sep">/</span>
+      <span class="here">Assault Lawyers Sunshine Coast</span>
+    </div>
+  </div>
+
+  <section class="hero" data-screen-label="Hero">
+    <div class="wrap">
+      <div class="hero-left">
+        <div class="kicker"><span class="line"></span><span class="eyebrow">Sunshine Coast · Maroochydore Office · Assault Defence</span></div>
+        <h1>Charged with <span class="u">assault</span> on the Sunshine&nbsp;Coast?<br/>Talk to lawyers who appear at <em>Maroochydore weekly.</em></h1>
+        <p class="hero-lede">
+          From the Caloundra Road courthouse to Noosa Magistrates and the Maroochydore District Court, our team runs assault matters across the entire Sunshine Coast every week.
+          <strong>Steven Brough</strong> has practised criminal law since 2001 and has appeared in Queensland courts thousands of times. Fixed fees quoted upfront. A real lawyer on the phone within 30 minutes.
+        </p>
+
+        <div class="office-card">
+          <div class="f">
+            <div class="l">Sunshine Coast Office</div>
+            <div class="n">8/84 Wises Road</div>
+            <div class="s">Maroochydore QLD 4558</div>
+          </div>
+          <div class="f">
+            <div class="l">Direct Line</div>
+            <div class="n"><a href="tel:1300952255">1300 952 255</a></div>
+            <div class="s">7 days · 7am – 7pm</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-form">
+        <div class="hdr">
+          <span class="pulse"></span>
+          <span class="lbl">Lawyer available now</span>
+        </div>
+        <h3>Free, confidential advice on your Sunshine Coast assault charge.</h3>
+        <p class="sm">A specialist will call you back <strong>within 30 minutes</strong> (business hours). No obligation, no cost, fixed-fee quote in writing the same day.</p>
+        <form onsubmit="event.preventDefault();alert('Thanks — we will call you shortly.')">
+          <div class="hf-row">
+            <div class="hf-field"><label>Name</label><input type="text" placeholder="Your full name" required></div>
+            <div class="hf-field"><label>Phone</label><input type="tel" placeholder="04xx xxx xxx" required></div>
+          </div>
+          <div class="hf-field" style="margin-bottom:10px"><label>Email</label><input type="email" placeholder="you@example.com" required></div>
+          <div class="hf-field" style="margin-bottom:10px"><label>Charge</label>
+            <select><option>Common assault</option><option>AOBH</option><option>GBH</option><option>Serious assault / police</option><option>Other / not sure</option></select>
+          </div>
+          <div class="hf-field" style="margin-bottom:10px"><label>Brief details</label><textarea placeholder="Date, court, what you've been told so far"></textarea></div>
+          <button class="hf-submit" type="submit">Get my free advice & fixed quote →</button>
+          <div class="hf-foot">
+            <span>🔒 Confidential</span>
+            <span>⏱ 30 min callback</span>
+            <span>✓ No obligation</span>
+          </div>
+        </form>
+        <div class="call-line">
+          Prefer to talk now? <a href="tel:1300952255">☎ 1300 952 255</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section class="proof">
+    <div class="wrap">
+      <div class="cell">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7L12 17.8 5.7 21.2l1.7-7L2 9.5l7.1-.6L12 2z"/></svg></div>
+        <div class="txt"><div class="n"><em>4.9★</em> on Google</div><div class="l">1,248 reviews</div></div>
+      </div>
+      <div class="cell">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <div class="txt"><div class="n">8 <em>offices</em></div><div class="l">Across Queensland</div></div>
+      </div>
+      <div class="cell">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11l5 5 11-11"/></svg></div>
+        <div class="txt"><div class="n"><em>1,248+</em> clients</div><div class="l">Since 2010</div></div>
+      </div>
+      <div class="cell">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 10h18M7 15h4"/></svg></div>
+        <div class="txt"><div class="n"><em>Fixed</em> fees</div><div class="l">Quoted upfront</div></div>
+      </div>
+      <div class="cell">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <div class="txt"><div class="n">7-day <em>availability</em></div><div class="l">7am – 7pm</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UP LINKS -->
+  <section class="uplinks">
+    <div class="wrap">
+      <div class="row">
+        <span class="lab">This page lives under</span>
+        <a href="Assault.html">Assault Charges (overview) →</a>
+        <a href="#">Sunshine Coast Hub →</a>
+        <a href="legal-fees.html">Legal Fees →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ASSAULT TYPES (3 cols) -->
+  <section class="charges" data-screen-label="Charges Handled">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Run from our Maroochydore office</span>
+          <h2>Every assault charge — <em>handled locally.</em></h2>
+        </div>
+        <p>Whatever section of the Criminal Code you've been charged under, our Sunshine Coast team has run it before — at the Caloundra Road courthouse, at Noosa, and committed up to the District Court at Maroochydore. Tap any charge for the full breakdown.</p>
+      </div>
+
+      <div class="chg-grid">
+        <a class="chg featured" href="#">
+          <div class="tag">Most common</div>
+          <h3>Common Assault</h3>
+          <div class="desc">Threats, shoves, or minor contact without lasting injury (s 335). Typically dealt with in Sunshine Coast Magistrates Court — often resolves with no conviction recorded.</div>
+          <div class="meta"><span class="max">Max 3 yrs</span><span class="arrow">Read more →</span></div>
+        </a>
+        <a class="chg" href="#">
+          <div class="tag">Serious</div>
+          <h3>Assault Occasioning Bodily Harm</h3>
+          <div class="desc">AOBH — assault causing actual injury (s 339). Heard at Maroochydore unless aggravated. Medical-evidence review is critical to outcome.</div>
+          <div class="meta"><span class="max">Max 7 yrs</span><span class="arrow">Read more →</span></div>
+        </a>
+        <a class="chg" href="#">
+          <div class="tag">Indictable</div>
+          <h3>Grievous Bodily Harm</h3>
+          <div class="desc">GBH — serious or life-threatening injury (s 320). Committed from Sunshine Coast Magistrates to <strong>Maroochydore District Court</strong>.</div>
+          <div class="meta"><span class="max">Max 14 yrs</span><span class="arrow">Read more →</span></div>
+        </a>
+        <a class="chg" href="serious-assault.html">
+          <div class="tag">Aggravated</div>
+          <h3>Serious Assault</h3>
+          <div class="desc">Assault on police, public officers, the elderly or persons with a disability (s 340). Section 12 outcomes are achievable with the right preparation.</div>
+          <div class="meta"><span class="max">Max 14 yrs</span><span class="arrow">Read more →</span></div>
+        </a>
+        <a class="chg" href="#">
+          <div class="tag">Indictable</div>
+          <h3>Wounding</h3>
+          <div class="desc">Any injury that breaks the skin's second layer (s 323). Common arising from broken glassware on Ocean Street and Mooloolaba Esplanade incidents.</div>
+          <div class="meta"><span class="max">Max 7 yrs</span><span class="arrow">Read more →</span></div>
+        </a>
+        <a class="chg" href="#">
+          <div class="tag">Public order</div>
+          <h3>Affray</h3>
+          <div class="desc">Group violence in public (s 72). Often follows pub or street incidents — multiple-defendant matters need careful coordination.</div>
+          <div class="meta"><span class="max">Max 7 yrs</span><span class="arrow">Read more →</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COURTS -->
+  <section class="courts" data-screen-label="Sunshine Coast Courts">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">The courts we appear at — every week</span>
+          <h2>Three Sunshine Coast courts. <em>One local team.</em></h2>
+        </div>
+        <p>Knowing the registry, the bench and the prosecutor matters. Here's where your assault matter is most likely listed — and what to expect when you get there.</p>
+      </div>
+
+      <div class="court-grid">
+        <div class="court">
+          <div class="tag">Magistrates · Most matters</div>
+          <h3>Sunshine Coast Magistrates Court</h3>
+          <div class="addr">44 Caloundra Road, Maroochydore QLD 4558<br/>Approx 3 min from our office</div>
+          <ul>
+            <li>Common assault, AOBH, serious assault</li>
+            <li>Bail applications &amp; first mentions</li>
+            <li>Domestic violence applications &amp; breaches</li>
+            <li>Typical first listing: 2–4 weeks from arrest</li>
+          </ul>
+          <div class="meta"><span>Daily callovers</span><span><strong>Magistrates · Summary</strong></span></div>
+        </div>
+        <div class="court">
+          <div class="tag">Magistrates · Northern matters</div>
+          <h3>Noosa Magistrates Court</h3>
+          <div class="addr">9 Pelican Street, Tewantin QLD 4565<br/>Lists every Monday &amp; Thursday</div>
+          <ul>
+            <li>Noosa, Tewantin, Peregian &amp; Coolum-area matters</li>
+            <li>Common assault &amp; AOBH</li>
+            <li>Drink driving paired with assault charges</li>
+            <li>Quieter list — matters often called early</li>
+          </ul>
+          <div class="meta"><span>Weekly</span><span><strong>Magistrates · Summary</strong></span></div>
+        </div>
+        <div class="court">
+          <div class="tag">District · Indictable</div>
+          <h3>Maroochydore District Court</h3>
+          <div class="addr">44 Caloundra Road, Maroochydore QLD 4558<br/>Co-located with the Magistrates Court</div>
+          <ul>
+            <li>GBH, serious wounding, sexual assault</li>
+            <li>Trial &amp; sentence matters committed up</li>
+            <li>Bail review applications</li>
+            <li>Listings 6–12 weeks after committal</li>
+          </ul>
+          <div class="meta"><span>Sittings</span><span><strong>District · Indictable</strong></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBURBS BAND -->
+  <section class="suburbs" data-screen-label="Suburbs Served">
+    <div class="wrap">
+      <div class="grid">
+        <div>
+          <span class="eyebrow">Sunshine Coast — top to bottom</span>
+          <h2>From Caloundra to <em>Noosa.</em></h2>
+          <p>We act for clients right across the Sunshine Coast region, from Pelican Waters in the south to Peregian Beach in the north. If your incident happened on the Coast, your matter will list locally — and we'll be there.</p>
+        </div>
+        <div class="suburb-cloud">
+          <a href="#">Maroochydore</a><a href="#">Noosa</a><a href="#">Caloundra</a><a href="#">Kawana</a>
+          <a href="#">Nambour</a><a href="#">Mooloolaba</a><a href="#">Buderim</a><a href="#">Coolum</a>
+          <a href="#">Peregian</a><a href="#">Twin Waters</a><a href="#">Alexandra Headland</a><a href="#">Cotton Tree</a>
+          <a href="#">Tewantin</a><a href="#">Sunshine Beach</a><a href="#">Marcoola</a><a href="#">Bli Bli</a>
+          <a href="#">Pelican Waters</a><a href="#">Sippy Downs</a><a href="#">Yandina</a><a href="#">Eumundi</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH / Steven -->
+  <section class="approach" data-screen-label="Why Clarity Law">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Why Clarity Law on the Sunshine Coast</span>
+          <h2>25 years in court. <em>Plain English on the phone.</em></h2>
+        </div>
+        <p>We've built the Sunshine Coast practice the same way we built every Clarity Law office: fixed fees, prepared lawyers, and a phone that answers on weekends. There's no junior briefcase carrier appearing on your matter.</p>
+      </div>
+
+      <div class="approach-intro">
+        <div class="steven-portrait">
+          <div class="sig">Steven &mdash; Founder</div>
+          <img src="assets/lawyers/steven.png" alt="Steven Brough, criminal lawyer at Clarity Law's Maroochydore office">
+          <div class="caption">
+            <div class="q">"You don't get good outcomes on the Sunshine Coast by reading from a Brisbane playbook. You get them by knowing the magistrates, the prosecutors, and the room."</div>
+            <div class="r">Steven Brough · Founder &amp; Director</div>
+          </div>
+        </div>
+        <div class="words">
+          <h3>Practising criminal law in Queensland since <em>2001.</em></h3>
+          <p>I've appeared in Queensland courts thousands of times — from Maroochydore Magistrates to Brisbane Supreme Court. The Sunshine Coast practice is built on local knowledge: which prosecutors will negotiate, which magistrates expect particular submissions, and which matters move best by way of an early plea or a contested hearing.</p>
+          <p>You'll get a fixed fee in writing before you commit, a clear plan within 24 hours of the brief landing, and a senior lawyer who knows the Caloundra Road registry by name. That's the standard at every Clarity Law office — and it doesn't change because you're north of Brisbane.</p>
+          <div class="creds">
+            <div class="c"><div class="n"><em>2001</em></div><div class="l">Practising since</div></div>
+            <div class="c"><div class="n">1,248<span style="color:var(--orange)">+</span></div><div class="l">Clients served</div></div>
+            <div class="c"><div class="n">7</div><div class="l">QLD offices</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTCOMES -->
+  <section class="outcomes" data-screen-label="Recent Sunshine Coast Outcomes">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">From the Sunshine Coast lists</span>
+        <h2>Local matters. <em>Local results.</em></h2>
+        <p>A sample of assault matters we've recently resolved across Sunshine Coast Magistrates, Noosa Magistrates and Maroochydore District. Anonymised; past results are not a guarantee.</p>
+      </div>
+      <div class="out-grid">
+        <div class="out">
+          <div class="charge">Common Assault · 2026</div>
+          <div class="outcome"><em>No conviction</em> recorded</div>
+          <div class="det">Hospitality worker charged after a Mooloolaba venue altercation. Section 12 submissions accepted on a guilty plea, $600 fine, no conviction. Working with Children Check unaffected.</div>
+          <div class="foot"><span class="court">Sunshine Coast Magistrates</span><span>Plea</span></div>
+        </div>
+        <div class="out">
+          <div class="charge">AOBH · 2026</div>
+          <div class="outcome">Charge <em>withdrawn</em></div>
+          <div class="det">Tradie charged after a Buderim worksite confrontation. CCTV obtained, statements challenged. Prosecution offered no evidence at the second mention. Charge dismissed.</div>
+          <div class="foot"><span class="court">Noosa Magistrates</span><span>Negotiation</span></div>
+        </div>
+        <div class="out">
+          <div class="charge">Serious Assault · 2025</div>
+          <div class="outcome"><em>Probation,</em> no conviction</div>
+          <div class="det">Client charged with assault police following a Maroochydore arrest. 12 months probation, no conviction recorded after careful sentencing submissions and a psychologist's report.</div>
+          <div class="foot"><span class="court">Maroochydore Magistrates</span><span>Plea</span></div>
+        </div>
+      </div>
+      <p class="out-note">* Details anonymised. Every matter turns on its own facts. We make no promises about future outcomes.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" data-screen-label="FAQ">
+    <div class="wrap">
+      <div class="faq-left">
+        <span class="eyebrow">Sunshine Coast assault — FAQ</span>
+        <h2>The questions we get <em>every Monday morning.</em></h2>
+        <p class="sub">Plain-English answers to what people ask us most after being charged with assault on the Coast. If yours isn't here, ring us — we'll answer it on the spot.</p>
+        <a class="faq-cta" href="tel:1300952255">☎ Call 1300 952 255</a>
+      </div>
+      <div class="faq-list">
+        <details class="qa" open>
+          <summary>Will I go to jail for an assault charge on the Sunshine Coast? <span class="icon">+</span></summary>
+          <div class="body">
+            <p>Not automatically. Whether jail is realistic depends on which assault you're charged with, your history, the circumstances and the injuries involved.</p>
+            <p>Most first-time common assault and minor AOBH matters in Sunshine Coast Magistrates Court resolve with a fine, probation or a good-behaviour bond — frequently with <strong>no conviction recorded</strong> under section 12. Indictable matters such as GBH or serious assault committed up to Maroochydore District Court carry a higher risk, which is why early preparation matters.</p>
+          </div>
+        </details>
+        <details class="qa">
+          <summary>Which court will I appear in if charged with assault in Maroochydore? <span class="icon">+</span></summary>
+          <div class="body">
+            <p>Most matters list at <strong>Sunshine Coast Magistrates Court</strong> on Caloundra Road, Maroochydore. Matters arising further north (Noosa, Tewantin, Peregian, Coolum) are usually listed at <strong>Noosa Magistrates Court</strong>. Indictable assault matters such as GBH are committed to <strong>Maroochydore District Court</strong>.</p>
+            <p>We appear at all three on a regular weekly basis.</p>
+          </div>
+        </details>
+        <details class="qa">
+          <summary>How much does an assault lawyer cost on the Sunshine Coast? <span class="icon">+</span></summary>
+          <div class="body">
+            <p>We quote a <strong>fixed fee in writing</strong> before any work begins — no hourly rates, no surprises. Common assault pleas at Sunshine Coast Magistrates start in the low thousands. AOBH and District Court matters are quoted individually after we've reviewed the brief.</p>
+            <p>The <a href="legal-fees.html" style="color:var(--orange);text-decoration:underline">legal fees page</a> sets out the indicative ranges in detail. The first phone call is always free.</p>
+          </div>
+        </details>
+        <details class="qa">
+          <summary>Can I get a no-conviction result for assault in Queensland? <span class="icon">+</span></summary>
+          <div class="body">
+            <p>Yes — under section 12 of the Penalties and Sentences Act, the court can sentence you without recording a conviction. It is most often achievable for common assault and minor AOBH where there is limited or no prior history.</p>
+            <p>The court considers the nature of the offence, your character, and the impact of a conviction on employment, travel and personal circumstances. <strong>Well-prepared submissions, character references and rehabilitation material make a real difference.</strong></p>
+          </div>
+        </details>
+        <details class="qa">
+          <summary>What should I do if I've been charged with assault on the Sunshine Coast? <span class="icon">+</span></summary>
+          <div class="body">
+            <p>Three things, in this order. First — <strong>say nothing further to police</strong> beyond your name, date of birth and address. Second — keep your bail paperwork, Notice to Appear or QP9 somewhere safe and don't post about the matter on social media. Third — <strong>call us before your first mention</strong> so we can request the brief of evidence and advise on plea before you commit to anything.</p>
+            <p>Most first appearances should be adjourned, not pleaded — even when the matter looks straightforward.</p>
+          </div>
+        </details>
+        <details class="qa">
+          <summary>Do you handle serious assault and GBH matters? <span class="icon">+</span></summary>
+          <div class="body">
+            <p>Yes. We run every category of assault matter Queensland law recognises, including <a href="serious-assault.html" style="color:var(--orange);text-decoration:underline">serious assault</a>, GBH, wounding, choking and assault police. Indictable matters from the Sunshine Coast are committed up to Maroochydore District Court, where Steven and the team appear regularly.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews" data-screen-label="Reviews">
+    <div class="head">
+      <div>
+        <span class="eyebrow">From our clients</span>
+        <h2>Words from the <em>other side of it.</em></h2>
+      </div>
+      <div class="gmeta"><div><span class="stars">★★★★★</span> &nbsp;<strong>4.9</strong> · 1,248 Google reviews</div></div>
+    </div>
+    <div class="marquee"><div class="track" id="track1"></div></div>
+    <div class="marquee reverse"><div class="track" id="track2"></div></div>
+  </section>
+
+  <!-- OFFICES (full QLD) -->
+  <section class="offices" data-screen-label="Offices">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Across Queensland</span>
+          <h2>Eight offices. One <em>Sunshine Coast lawyer.</em></h2>
+        </div>
+        <p>Your Maroochydore matter runs out of our Sunshine Coast office — but the resources of the full firm sit behind every brief.</p>
+      </div>
+      <div class="body">
+        <div class="map-wrap">
+          <div id="qld-map"></div>
+          <div style="position:absolute;left:14px;bottom:14px;z-index:500;background:rgba(19,43,94,0.92);color:#fff;padding:8px 14px;font-family:'Inter Tight',sans-serif;font-size:10px;letter-spacing:0.18em;text-transform:uppercase">South East Queensland</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div style="background:#fff;padding:18px 20px;border:2px solid var(--orange)"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange)">QLD / 01 · This office</div><div style="font-family:'Instrument Serif',serif;font-size:22px;margin:4px 0 6px;color:var(--ink);letter-spacing:-0.01em">Sunshine Coast</div><div style="font-size:12.5px;color:var(--ink-soft);line-height:1.45">8/84 Wises Road<br/>Maroochydore QLD 4558</div><div style="font-size:13px;color:var(--blue);font-weight:600;margin-top:8px">1300 952 255</div></div>
+          <div style="background:#fff;padding:18px 20px;border:1px solid var(--rule)"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange)">QLD / 02</div><div style="font-family:'Instrument Serif',serif;font-size:22px;margin:4px 0 6px;color:var(--ink);letter-spacing:-0.01em">Brisbane</div><div style="font-size:12.5px;color:var(--ink-soft);line-height:1.45">Level 1, 16 McDougall St<br/>Milton QLD 4064</div><div style="font-size:13px;color:var(--blue);font-weight:600;margin-top:8px">07 3067 7017</div></div>
+          <div style="background:#fff;padding:18px 20px;border:1px solid var(--rule)"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange)">QLD / 03</div><div style="font-family:'Instrument Serif',serif;font-size:22px;margin:4px 0 6px;color:var(--ink);letter-spacing:-0.01em">Gold Coast</div><div style="font-size:12.5px;color:var(--ink-soft);line-height:1.45">Level 15, 2 Corporate Court<br/>Bundall QLD 4217</div><div style="font-size:13px;color:var(--blue);font-weight:600;margin-top:8px">07 5613 2683</div></div>
+          <div style="background:#fff;padding:18px 20px;border:1px solid var(--rule)"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange)">QLD / 04</div><div style="font-family:'Instrument Serif',serif;font-size:22px;margin:4px 0 6px;color:var(--ink);letter-spacing:-0.01em">Logan</div><div style="font-size:12.5px;color:var(--ink-soft);line-height:1.45">Level 2, 3972 Pacific Hwy<br/>Loganholme QLD 4129</div><div style="font-size:13px;color:var(--blue);font-weight:600;margin-top:8px">07 3668 0683</div></div>
+          <div style="background:#fff;padding:18px 20px;border:1px solid var(--rule)"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange)">QLD / 05</div><div style="font-family:'Instrument Serif',serif;font-size:22px;margin:4px 0 6px;color:var(--ink);letter-spacing:-0.01em">Ipswich</div><div style="font-size:12.5px;color:var(--ink-soft);line-height:1.45">16 East Street<br/>Ipswich QLD 4305</div><div style="font-size:13px;color:var(--blue);font-weight:600;margin-top:8px">07 3485 0147</div></div>
+          <div style="background:#fff;padding:18px 20px;border:1px solid var(--rule)"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange)">QLD / 06</div><div style="font-family:'Instrument Serif',serif;font-size:22px;margin:4px 0 6px;color:var(--ink);letter-spacing:-0.01em">North Brisbane</div><div style="font-size:12.5px;color:var(--ink-soft);line-height:1.45">3/22-24 Strathwyn Street<br/>Brendale QLD 4500</div><div style="font-size:13px;color:var(--blue);font-weight:600;margin-top:8px">07 3485 0184</div></div>
+          <div style="background:#fff;padding:18px 20px;border:1px solid var(--rule)"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange)">QLD / 07</div><div style="font-family:'Instrument Serif',serif;font-size:22px;margin:4px 0 6px;color:var(--ink);letter-spacing:-0.01em">Toowoomba</div><div style="font-size:12.5px;color:var(--ink-soft);line-height:1.45">123 Margaret Street<br/>Toowoomba QLD 4350</div><div style="font-size:13px;color:var(--blue);font-weight:600;margin-top:8px">1300 952 255</div></div>
+          <div style="background:#fff;padding:18px 20px;border:1px solid var(--rule)"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange)">QLD / 08</div><div style="font-family:'Instrument Serif',serif;font-size:22px;margin:4px 0 6px;color:var(--ink);letter-spacing:-0.01em">Hervey Bay</div><div style="font-size:12.5px;color:var(--ink-soft);line-height:1.45">6 Liuzzi Street, Unit 3<br/>Pialba QLD 4655</div><div style="font-size:13px;color:var(--blue);font-weight:600;margin-top:8px">07 3485 0184</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band" data-screen-label="CTA">
+    <div class="wrap">
+      <h2>Charged on the Coast? <em>Don't sit with it alone tonight.</em></h2>
+      <div class="btns">
+        <a href="tel:1300952255" class="btn-orange">☎ Call 1300 952 255</a>
+        <a href="contact.html" class="btn-outline">Request a callback →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="brand">
+        <img src="assets/logo.jpg" alt="Clarity Law">
+        <p>Queensland's expert criminal law firm. Eight offices, eight lawyers, one job: getting you the best outcome possible at a fixed price.</p>
+        <div style="margin-top:20px;font-size:13px;color:#8FA1BE">
+          <div style="color:#fff;font-weight:600;margin-bottom:6px">☎ 1300 952 255</div>
+          <div>Available 7 days · 7am – 7pm</div>
+        </div>
+      </div>
+      <div>
+        <h4>Assault Charges</h4>
+        <ul>
+          <li><a href="Assault.html">Assault Charges (overview)</a></li>
+          <li><a href="serious-assault.html">Serious Assault</a></li>
+          <li><a href="#">Common Assault</a></li>
+          <li><a href="#">AOBH</a></li>
+          <li><a href="#">Grievous Bodily Harm</a></li>
+          <li><a href="#">Wounding</a></li>
+          <li><a href="#">Affray</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Offices</h4>
+        <ul>
+          <li><a href="#">Sunshine Coast</a></li>
+          <li><a href="Brisbane.html">Brisbane (Milton)</a></li>
+          <li><a href="#">Gold Coast (Bundall)</a></li>
+          <li><a href="#">North Brisbane</a></li>
+          <li><a href="#">Ipswich</a></li>
+          <li><a href="#">Logan</a></li>
+          <li><a href="#">Hervey Bay</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="legal-fees.html">Legal Fees</a></li>
+          <li><a href="#">Beenleigh Court Guide</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="Team.html">Our Team</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Urgent?</h4>
+        <ul>
+          <li><a href="tel:1300952255">Call 1300 952 255</a></li>
+          <li><a href="contact.html">Email us</a></li>
+          <li><a href="contact.html">Online enquiry</a></li>
+        </ul>
+        <div style="margin-top:24px;padding:14px;background:rgba(232,100,30,.15);border-left:3px solid var(--orange)">
+          <div style="font-size:12px;color:#B8C3D6;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px">Member</div>
+          <div style="font-size:14px;color:#fff;font-weight:600">Queensland Law Society</div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap bottom">
+      <span>© 2026 Clarity Law Pty Ltd · ABN 00 000 000 000</span>
+      <span>Privacy Policy · Terms of Use · QLS member firm</span>
+    </div>
+  </footer>
+
+<script src="assets/clarity-shared.js"></script>
+<script>
+  ClarityReviews.fill('track1','track2');
+  ClarityMaps.qld('qld-map');
+</script>
+</body>
+</html>

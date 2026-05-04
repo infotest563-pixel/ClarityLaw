@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Clarity Law — Pages</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #FCFAF5;
+    --ink: #15130F;
+    --ink-2: #3A362E;
+    --muted: #6B655A;
+    --paper: #FFFFFF;
+    --rule: #E5DFD2;
+    --accent: oklch(0.55 0.16 35);
+    --serif: "Fraunces", Georgia, serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+  html, body { background: var(--bg); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 64px 32px; }
+
+  header { margin-bottom: 48px; }
+  .kicker {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: var(--mono); font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--muted);
+    margin-bottom: 20px;
+  }
+  .kicker .line { display: inline-block; width: 32px; height: 1px; background: var(--ink); }
+  h1 {
+    font-family: var(--serif); font-weight: 500;
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.05; letter-spacing: -0.02em;
+    max-width: 18ch; text-wrap: balance;
+  }
+  h1 em { font-style: italic; color: var(--accent); font-weight: 600; }
+  .lede {
+    font-size: 15px; line-height: 1.55; color: var(--ink-2);
+    max-width: 56ch; margin-top: 16px;
+  }
+
+  .group {
+    margin-top: 56px;
+    border-top: 1px solid var(--ink);
+    padding-top: 20px;
+  }
+  .group-head {
+    display: flex; align-items: baseline; gap: 16px;
+    margin-bottom: 24px;
+  }
+  .group-title {
+    font-family: var(--serif); font-weight: 500;
+    font-size: 24px; letter-spacing: -0.01em;
+  }
+  .group-count {
+    font-family: var(--mono); font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--muted);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    display: flex; flex-direction: column;
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    text-decoration: none; color: inherit;
+    padding: 20px 22px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    min-height: 140px;
+  }
+  .card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .card-num {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--muted); margin-bottom: 12px;
+  }
+  .card-title {
+    font-family: var(--serif); font-weight: 500;
+    font-size: 22px; line-height: 1.15; letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+  .card-file {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--muted);
+    word-break: break-all;
+    margin-top: auto;
+    padding-top: 16px;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 8px;
+  }
+  .card-file .arrow { color: var(--accent); flex-shrink: 0; }
+  .card:hover .arrow { transform: translate(2px, -2px); }
+  .arrow { display: inline-block; transition: transform 0.15s; }
+
+  footer {
+    margin-top: 80px; padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono); font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+
+  @media (max-width: 720px) {
+    .wrap { padding: 40px 20px; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="kicker"><span class="line"></span>Clarity Law · Page index</div>
+    <h1>The pages we've built <em>so far.</em></h1>
+    <p class="lede">Click any tile to open it for a final check. Use your browser's back button to return here.</p>
+  </header>
+
+  <section class="group">
+    <div class="group-head">
+      <h2 class="group-title">Core pages</h2>
+      <span class="group-count" id="c-core">0</span>
+    </div>
+    <div class="grid" data-group="core"></div>
+  </section>
+
+  <section class="group">
+    <div class="group-head">
+      <h2 class="group-title">Service pages</h2>
+      <span class="group-count" id="c-service">0</span>
+    </div>
+    <div class="grid" data-group="service"></div>
+  </section>
+
+  <section class="group">
+    <div class="group-head">
+      <h2 class="group-title">Location pages</h2>
+      <span class="group-count" id="c-location">0</span>
+    </div>
+    <div class="grid" data-group="location"></div>
+  </section>
+
+  <section class="group">
+    <div class="group-head">
+      <h2 class="group-title">Earlier drafts</h2>
+      <span class="group-count" id="c-archive">0</span>
+    </div>
+    <div class="grid" data-group="archive"></div>
+  </section>
+
+  <footer>Click a tile to open · Use the browser back button to return</footer>
+</div>
+
+<script>
+const PAGES = [
+  { group: "core",     title: "Home",                          file: "Home.html" },
+  { group: "core",     title: "Our Team",                      file: "Team.html" },
+  { group: "core",     title: "Contact",                       file: "contact.html" },
+  { group: "core",     title: "Legal Fees",                    file: "legal-fees.html" },
+
+  { group: "service",  title: "Assault Charges (hub)",         file: "Assault.html" },
+  { group: "service",  title: "Serious Assault — s340",        file: "serious-assault.html" },
+  { group: "service",  title: "Beenleigh Magistrates Court",   file: "beenleigh-magistrates-court.html" },
+
+  { group: "location", title: "Brisbane (Milton HQ)",          file: "Brisbane.html" },
+  { group: "location", title: "Sunshine Coast — Assault",      file: "assault-lawyers-sunshine-coast.html" },
+
+  { group: "archive",  title: "Serious Assault — v1",                  file: "serious-assault v1.html" },
+  { group: "archive",  title: "Serious Assault — v2",                  file: "serious-assault v2.html" },
+  { group: "archive",  title: "Serious Assault — standalone bundle",   file: "serious-assault-standalone.html" },
+  { group: "archive",  title: "Serious Assault — named bundle",        file: "Serious Assault - Clarity Law.html" },
+  { group: "archive",  title: "5-Page Index (bundled)",                file: "Clarity Law - 5 Page Index.html" },
+];
+
+const counts = { core: 0, service: 0, location: 0, archive: 0 };
+PAGES.forEach((p, i) => {
+  const grid = document.querySelector(`.grid[data-group="${p.group}"]`);
+  if (!grid) return;
+  counts[p.group]++;
+  const a = document.createElement("a");
+  a.className = "card";
+  a.href = encodeURI(p.file);
+  a.innerHTML = `
+    <div class="card-num">${String(i + 1).padStart(2, "0")}</div>
+    <div class="card-title">${p.title}</div>
+    <div class="card-file"><span>${p.file}</span><span class="arrow">↗</span></div>
+  `;
+  grid.appendChild(a);
+});
+Object.entries(counts).forEach(([k, v]) => {
+  const el = document.getElementById("c-" + k);
+  if (el) el.textContent = String(v).padStart(2, "0");
+});
+</script>
+
+</body>
+</html>

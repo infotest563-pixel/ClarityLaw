@@ -1,0 +1,1042 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1440" />
+<title>Assault Charges Lawyers Queensland — Clarity Law</title>
+<meta name="description" content="Charged with assault in Queensland? Specialist criminal lawyers, fixed fees, 8 offices QLD-wide. Common assault, GBH, serious assault, AOBH and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- LEGAL SERVICE SCHEMA -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  "name": "Clarity Law — Assault Charges",
+  "description": "Specialist criminal defence lawyers in Queensland handling all assault charges including common assault, assault occasioning bodily harm, grievous bodily harm, serious assault and wounding.",
+  "url": "https://claritylaw.com.au/services/assault-charges",
+  "image": "https://claritylaw.com.au/assets/logo.jpg",
+  "telephone": "+61-1300-952-255",
+  "priceRange": "Fixed fee quoted upfront",
+  "areaServed": [
+    {"@type":"State","name":"Queensland"}
+  ],
+  "serviceType": [
+    "Common Assault Defence",
+    "Assault Occasioning Bodily Harm Defence",
+    "Grievous Bodily Harm Defence",
+    "Serious Assault Defence",
+    "Wounding Defence",
+    "Affray Defence",
+    "Choking Strangulation Defence",
+    "Assault Police Officer Defence"
+  ],
+  "provider": {
+    "@type":"LegalService",
+    "name":"Clarity Law",
+    "telephone":"+61-1300-952-255"
+  },
+  "address": {
+    "@type":"PostalAddress",
+    "streetAddress":"Level 1, 16 McDougall St",
+    "addressLocality":"Milton",
+    "addressRegion":"QLD",
+    "postalCode":"4064",
+    "addressCountry":"AU"
+  },
+  "aggregateRating": {
+    "@type":"AggregateRating",
+    "ratingValue":"4.9",
+    "reviewCount":"1248"
+  }
+}
+</script>
+<!-- FAQPage schema -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Will I go to jail for an assault charge in Queensland?","acceptedAnswer":{"@type":"Answer","text":"Not automatically. Whether jail is a realistic outcome depends on the type of assault (common assault, AOBH, GBH, serious assault etc), your criminal history, the circumstances, and the injuries. Many assault matters — especially first offences — resolve without actual imprisonment."}},
+    {"@type":"Question","name":"Can I get a no-conviction outcome for assault?","acceptedAnswer":{"@type":"Answer","text":"Yes, it is possible in many cases — particularly common assault and minor AOBH matters where there is no prior history. The court considers section 12 of the Penalties and Sentences Act. Well-prepared sentencing submissions make a real difference."}},
+    {"@type":"Question","name":"What is the difference between common assault, AOBH and GBH?","acceptedAnswer":{"@type":"Answer","text":"Common assault involves threat or application of force without actual injury. Assault occasioning bodily harm (AOBH) involves actual injury that interferes with health or comfort. Grievous bodily harm (GBH) involves serious, lasting or life-threatening injury."}},
+    {"@type":"Question","name":"How much does an assault lawyer cost in Queensland?","acceptedAnswer":{"@type":"Answer","text":"At Clarity Law we quote a fixed fee upfront in writing — no hourly rates, no surprises. Fees vary by charge type and court; typical common assault guilty pleas start in the low thousands."}},
+    {"@type":"Question","name":"Should I plead guilty to assault?","acceptedAnswer":{"@type":"Answer","text":"Never decide before you get advice. We review the brief of evidence, the statements and any CCTV before advising on plea. Self-defence, provocation, and factual disputes are all worth exploring first."}}
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --ink:#0B1B2B;
+    --ink-soft:#1F3348;
+    --paper:#FCFAF5;
+    --paper-2:#F4EFE4;
+    --rule:#E7E0D0;
+    --blue:#2563C9;
+    --blue-deep:#1748A0;
+    --blue-ink:#132B5E;
+    --blue-soft:#EAF1FC;
+    --orange:#E8641E;
+    --orange-deep:#C44E0F;
+    --gold:#C9A24B;
+    --muted:#6B7280;
+    --hair:1px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Inter Tight',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1360px;margin:0 auto;padding:0 40px}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted)}
+
+  /* ---------- TOP BAR + NAV (same as home) ---------- */
+  .topbar{background:var(--blue-ink);color:#E9EEF9;font-size:12px;letter-spacing:0.04em}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:38px}
+  .topbar .left{display:flex;gap:22px;align-items:center}
+  .topbar .left .dot{width:6px;height:6px;border-radius:50%;background:var(--orange);display:inline-block;margin-right:8px;box-shadow:0 0 0 3px rgba(232,100,30,.22)}
+  .topbar .right{display:flex;gap:22px;align-items:center;opacity:.9}
+
+  nav.primary{border-bottom:var(--hair) solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:40}
+  nav.primary .wrap{display:flex;align-items:center;justify-content:space-between;height:92px}
+  .logo img{height:46px;width:auto;display:block}
+  .navlinks{display:flex;gap:34px;align-items:center}
+  .navlinks a{font-size:14px;font-weight:500;color:var(--ink);padding:6px 0}
+  .navlinks a.first{color:var(--orange);font-weight:600}
+  .navlinks a.first::before{content:"";width:6px;height:6px;background:var(--orange);border-radius:50%;display:inline-block;margin-right:8px;vertical-align:middle;animation:pulse 2.2s infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.7)}}
+  .navlinks a:hover{color:var(--blue)}
+  .nav-cta{background:var(--orange);color:#fff;padding:12px 20px;font-weight:600;font-size:13px;letter-spacing:0.02em;box-shadow:0 1px 0 #B84A10 inset, 0 8px 16px -8px rgba(232,100,30,.5)}
+  .nav-cta:hover{background:var(--orange-deep)}
+
+  /* ---------- BREADCRUMB ---------- */
+  .crumbs{background:var(--paper);border-bottom:1px solid var(--rule);font-size:12px;color:var(--muted);letter-spacing:0.04em}
+  .crumbs .wrap{height:44px;display:flex;align-items:center;gap:10px}
+  .crumbs a:hover{color:var(--ink)}
+  .crumbs .sep{opacity:.4}
+  .crumbs .here{color:var(--ink);font-weight:500}
+
+  /* ---------- HERO (service-page: left = big headline, right = form) ---------- */
+  .hero{position:relative;padding:70px 0 80px;background:
+    radial-gradient(900px 400px at 90% 0%, rgba(232,100,30,.06), transparent 60%),
+    radial-gradient(800px 360px at 0% 100%, rgba(37,99,201,.06), transparent 60%),
+    var(--paper);overflow:hidden}
+  .hero .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:70px;align-items:start;position:relative;z-index:1}
+  .hero-left .kicker{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+  .hero-left .kicker .line{height:1px;width:52px;background:var(--ink);opacity:.3}
+  .hero h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(44px,5vw,76px);line-height:1.02;letter-spacing:-0.025em;margin:0 0 24px;color:var(--ink)}
+  .hero h1 em{font-style:italic;color:var(--blue)}
+  .hero h1 .u{position:relative;display:inline-block}
+  .hero h1 .u::after{content:"";position:absolute;left:-2px;right:-2px;bottom:4px;height:12px;background:var(--orange);opacity:.22;z-index:-1;transform:skew(-4deg)}
+  .hero-lede{font-size:18px;line-height:1.55;color:var(--ink-soft);max-width:540px;margin:0 0 30px}
+  .hero-lede strong{color:var(--ink)}
+
+  /* little chip strip below lede */
+  .chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;max-width:560px}
+  .chip{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--rule);padding:8px 14px;font-size:13px;color:var(--ink)}
+  .chip .d{width:6px;height:6px;background:var(--orange);border-radius:50%;flex:none}
+  .chip.b .d{background:var(--blue)}
+
+  .hero-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:600px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .hero-facts .f{padding:22px 24px 22px 0;border-right:1px solid var(--rule)}
+  .hero-facts .f:last-child{border-right:none;padding-right:0}
+  .hero-facts .n{font-family:'Instrument Serif',serif;font-size:36px;line-height:1;color:var(--ink)}
+  .hero-facts .n em{color:var(--orange);font-style:italic}
+  .hero-facts .l{font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+
+  /* form card — more prominent since it's at top of service page */
+  .hero-form{background:#fff;border:1px solid var(--rule);padding:30px 28px 26px;box-shadow:0 30px 60px -30px rgba(19,43,94,.2);position:sticky;top:112px}
+  .hero-form::before{content:"";position:absolute;top:-1px;left:-1px;right:-1px;height:4px;background:linear-gradient(90deg,var(--orange) 0 45%,var(--blue) 45% 100%)}
+  .hero-form .hdr{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .hero-form .hdr .pulse{width:9px;height:9px;background:#22C55E;border-radius:50%;box-shadow:0 0 0 4px rgba(34,197,94,.18);animation:pulse 1.8s infinite}
+  .hero-form .hdr .lbl{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft)}
+  .hero-form h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:28px;margin:2px 0 6px;letter-spacing:-0.01em;line-height:1.15}
+  .hero-form p.sm{font-size:13px;color:var(--ink-soft);margin:0 0 20px;line-height:1.55}
+  .hero-form p.sm strong{color:var(--orange-deep)}
+  .hf-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+  .hf-field{position:relative}
+  .hf-field label{position:absolute;top:-7px;left:10px;background:#fff;padding:0 6px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);z-index:2}
+  .hf-field input,.hf-field select,.hf-field textarea{width:100%;border:1px solid var(--rule);background:#fff;padding:12px 12px;font:inherit;font-size:14px;color:var(--ink);outline:none;transition:border .15s;border-radius:0}
+  .hf-field textarea{resize:vertical;min-height:74px;font-family:'Inter Tight',sans-serif}
+  .hf-field input:focus,.hf-field select:focus,.hf-field textarea:focus{border-color:var(--blue)}
+  .hf-submit{width:100%;background:var(--orange);color:#fff;border:none;padding:16px;font:inherit;font-weight:600;font-size:14px;cursor:pointer;margin-top:10px;letter-spacing:0.02em;box-shadow:0 1px 0 #B84A10 inset}
+  .hf-submit:hover{background:var(--orange-deep)}
+  .hf-foot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:11px;color:var(--muted);letter-spacing:0.02em}
+  .hf-foot span{display:inline-flex;gap:6px;align-items:center}
+  .hero-form .call-line{margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);text-align:center;font-size:13px;color:var(--ink-soft)}
+  .hero-form .call-line a{color:var(--blue);font-weight:600;font-size:18px;font-family:'Instrument Serif',serif}
+
+  /* ---------- PROOF (same as home) ---------- */
+  .proof{background:var(--blue-ink);color:#E9EEF9;border-top:1px solid rgba(255,255,255,.06)}
+  .proof .wrap{display:grid;grid-template-columns:repeat(5,1fr);padding:26px 40px}
+  .proof .cell{display:flex;align-items:center;gap:14px;padding:8px 22px;border-right:1px solid rgba(255,255,255,.08)}
+  .proof .cell:last-child{border-right:none}
+  .proof .icon{width:42px;height:42px;flex:none;display:grid;place-items:center;background:rgba(232,100,30,.16);color:var(--orange);border:1px solid rgba(232,100,30,.3)}
+  .proof .txt .n{font-family:'Instrument Serif',serif;font-size:22px;line-height:1;color:#fff}
+  .proof .txt .n em{color:var(--orange);font-style:normal}
+  .proof .txt .l{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#B8C3D6;margin-top:6px}
+
+  /* ---------- CHARGE LIST ---------- */
+  .charges{padding:120px 0;background:var(--paper)}
+  .charges .head{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:flex-end;margin-bottom:56px}
+  .charges h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:60px;line-height:1.04;letter-spacing:-0.02em;margin:14px 0 0}
+  .charges h2 em{color:var(--blue);font-style:italic}
+  .charges .head p{font-size:16px;color:var(--ink-soft);line-height:1.6;margin:0;max-width:440px}
+  .chg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .chg{background:#fff;border:1px solid var(--rule);padding:28px 26px 24px;display:flex;flex-direction:column;gap:14px;position:relative;transition:transform .2s,border-color .2s,box-shadow .2s;cursor:pointer;text-decoration:none;color:inherit}
+  .chg:hover{transform:translateY(-3px);border-color:var(--blue);box-shadow:0 18px 32px -18px rgba(37,99,201,.25)}
+  .chg .tag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;color:var(--orange);text-transform:uppercase}
+  .chg h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:26px;margin:0;letter-spacing:-0.01em;line-height:1.12}
+  .chg .desc{font-size:13.5px;color:var(--ink-soft);line-height:1.5;flex:1}
+  .chg .meta{display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding-top:14px;border-top:1px solid var(--rule)}
+  .chg .max{color:var(--ink);font-weight:600}
+  .chg .arrow{color:var(--blue)}
+  .chg:hover .arrow{color:var(--orange)}
+  .chg.featured{background:var(--blue-ink);color:#fff;border-color:var(--blue-ink)}
+  .chg.featured h3{color:#fff}
+  .chg.featured .desc{color:#B8C3D6}
+  .chg.featured .meta{border-top-color:rgba(255,255,255,.12);color:#B8C3D6}
+  .chg.featured .max{color:#fff}
+  .chg.featured .tag{color:var(--orange)}
+  .chg.featured .arrow{color:var(--orange)}
+
+  /* ---------- APPROACH (three pillars how we defend assault) ---------- */
+  .approach{background:var(--blue-soft);padding:120px 0;position:relative;overflow:hidden}
+  .approach::before{content:"";position:absolute;right:-200px;top:-200px;width:500px;height:500px;background:radial-gradient(circle,rgba(232,100,30,.07),transparent 60%);pointer-events:none}
+  .approach .wrap{position:relative}
+  .approach .head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:flex-end;margin-bottom:64px}
+  .approach h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:58px;line-height:1.04;letter-spacing:-0.02em;margin:12px 0 0}
+  .approach h2 em{color:var(--orange);font-style:italic}
+  .approach .head p{font-size:16px;color:var(--ink-soft);line-height:1.6;margin:0}
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .pillar{background:#fff;padding:36px 32px 32px;border:1px solid var(--rule);position:relative;display:flex;flex-direction:column;gap:14px}
+  .pillar .num{font-family:'Instrument Serif',serif;font-size:52px;color:var(--blue);line-height:1}
+  .pillar .num em{color:var(--orange);font-style:normal}
+  .pillar h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:28px;margin:4px 0 2px;letter-spacing:-0.01em;line-height:1.12}
+  .pillar p{font-size:14.5px;color:var(--ink-soft);line-height:1.6;margin:0}
+  .pillar .bullets{list-style:none;padding:0;margin:8px 0 0;display:flex;flex-direction:column;gap:8px}
+  .pillar .bullets li{font-size:13.5px;color:var(--ink-soft);line-height:1.5;padding-left:18px;position:relative}
+  .pillar .bullets li::before{content:"";position:absolute;left:0;top:7px;width:8px;height:8px;background:var(--orange);border-radius:50%}
+
+  /* Steven portrait card within approach section */
+  .approach-intro{display:grid;grid-template-columns:0.9fr 1.1fr;gap:60px;align-items:center;margin-bottom:72px;padding:44px 48px;background:#fff;border:1px solid var(--rule);position:relative;overflow:hidden}
+  .approach-intro::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--orange)}
+  .steven-portrait{position:relative;aspect-ratio:4/5;background:linear-gradient(160deg,#F4EFE4 0%, #E9E3D2 100%);overflow:visible}
+  .steven-portrait::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 20%,rgba(232,100,30,.14),transparent 55%);z-index:1}
+  .steven-portrait img{width:100%;height:100%;object-fit:cover;object-position:center top;position:relative;z-index:2}
+  .steven-portrait .sig{position:absolute;left:-6px;top:-28px;z-index:3;font-family:'Caveat',cursive;font-size:26px;color:#fff;background:var(--blue);padding:5px 18px 7px;letter-spacing:0.01em;transform:rotate(-1.5deg);box-shadow:3px 3px 10px rgba(0,0,0,.18);white-space:nowrap}
+  .steven-portrait .caption{position:absolute;left:16px;bottom:16px;right:16px;z-index:3;background:rgba(252,250,245,.96);padding:12px 16px;border-left:3px solid var(--orange)}
+  .steven-portrait .caption .q{font-family:'Instrument Serif',serif;font-size:15px;color:var(--ink);line-height:1.3;font-style:italic}
+  .steven-portrait .caption .r{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .approach-intro .words h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:38px;line-height:1.1;letter-spacing:-0.015em;margin:0 0 16px;color:var(--ink)}
+  .approach-intro .words h3 em{color:var(--blue);font-style:italic}
+  .approach-intro .words p{font-size:15px;color:var(--ink-soft);line-height:1.65;margin:0 0 12px}
+  .approach-intro .creds{display:flex;gap:32px;margin-top:24px;padding-top:22px;border-top:1px solid var(--rule)}
+  .approach-intro .creds .c .n{font-family:'Instrument Serif',serif;font-size:30px;color:var(--blue);line-height:1}
+  .approach-intro .creds .c .n em{color:var(--orange);font-style:normal}
+  .approach-intro .creds .c .l{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+
+  /* ---------- OUTCOMES STRIP ---------- */
+  .outcomes{background:var(--paper);padding:100px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .outcomes .head{text-align:center;max-width:720px;margin:0 auto 56px}
+  .outcomes h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:52px;line-height:1.04;letter-spacing:-0.02em;margin:12px 0 14px}
+  .outcomes h2 em{color:var(--blue);font-style:italic}
+  .outcomes .head p{font-size:15px;color:var(--ink-soft);line-height:1.6;margin:0}
+  .out-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .out{background:#fff;border:1px solid var(--rule);padding:32px 28px;position:relative;overflow:hidden}
+  .out::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange)}
+  .out .charge{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange)}
+  .out .outcome{font-family:'Instrument Serif',serif;font-size:30px;line-height:1.15;margin:10px 0 10px;letter-spacing:-0.01em;color:var(--ink)}
+  .out .outcome em{color:var(--blue);font-style:italic}
+  .out .det{font-size:13.5px;color:var(--ink-soft);line-height:1.55;margin-bottom:18px}
+  .out .foot{display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding-top:14px;border-top:1px solid var(--rule)}
+  .out .court{color:var(--ink);font-weight:600}
+  .out-note{text-align:center;margin-top:32px;font-size:12px;color:var(--muted);font-style:italic}
+
+  /* ---------- FAQ ---------- */
+  .faq{background:var(--blue-ink);color:#E9EEF9;padding:120px 0;position:relative;overflow:hidden}
+  .faq::before{content:"";position:absolute;left:-200px;bottom:-200px;width:500px;height:500px;background:radial-gradient(circle,rgba(232,100,30,.08),transparent 60%);pointer-events:none}
+  .faq .wrap{display:grid;grid-template-columns:0.8fr 1.2fr;gap:80px;align-items:flex-start;position:relative}
+  .faq-left{position:sticky;top:112px}
+  .faq-left .eyebrow{color:#B8C3D6}
+  .faq h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:56px;line-height:1.04;letter-spacing:-0.02em;margin:14px 0 24px;color:#fff}
+  .faq h2 em{color:var(--orange);font-style:italic}
+  .faq .sub{font-size:16px;color:#B8C3D6;line-height:1.6;max-width:380px;margin:0 0 32px}
+  .faq-cta{background:var(--orange);color:#fff;padding:16px 24px;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:10px;box-shadow:0 1px 0 #B84A10 inset, 0 14px 28px -12px rgba(232,100,30,.5)}
+  .faq-cta:hover{background:var(--orange-deep)}
+  .faq-list{display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(255,255,255,.12)}
+  details.qa{border-bottom:1px solid rgba(255,255,255,.12);padding:24px 0}
+  details.qa[open]{padding-bottom:28px}
+  details.qa summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:flex-start;gap:24px;font-family:'Instrument Serif',serif;font-size:24px;line-height:1.2;color:#fff;letter-spacing:-0.01em}
+  details.qa summary::-webkit-details-marker{display:none}
+  details.qa summary .icon{flex:none;width:32px;height:32px;border:1px solid rgba(255,255,255,.25);display:grid;place-items:center;font-size:18px;color:var(--orange);transition:transform .3s,background .2s;margin-top:3px}
+  details.qa[open] summary .icon{background:var(--orange);color:#fff;border-color:var(--orange);transform:rotate(45deg)}
+  details.qa summary:hover .icon{border-color:var(--orange)}
+  details.qa .body{font-size:15px;color:#c6d0e4;line-height:1.65;margin-top:16px;max-width:640px}
+  details.qa .body p{margin:0 0 10px}
+  details.qa .body strong{color:#fff}
+
+  /* ---------- REVIEWS (same) ---------- */
+  .reviews{background:var(--paper-2);padding:110px 0;overflow:hidden}
+  .reviews .head{display:flex;justify-content:space-between;align-items:flex-end;margin:0 auto 48px;padding:0 40px;max-width:1360px;gap:40px}
+  .reviews h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:56px;line-height:1.04;margin:10px 0 0;letter-spacing:-0.02em}
+  .reviews h2 em{color:var(--orange);font-style:italic}
+  .reviews .gmeta{display:flex;gap:20px;align-items:center;font-size:13px;color:var(--ink-soft)}
+  .reviews .gmeta .stars{color:var(--orange);letter-spacing:2px;font-size:15px}
+  .marquee{position:relative;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+  .marquee .track{display:flex;gap:24px;width:max-content;animation:slide 60s linear infinite}
+  .marquee.reverse .track{animation:slide-r 65s linear infinite}
+  .marquee + .marquee{margin-top:24px}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @keyframes slide-r{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+  .card{flex:none;width:420px;background:#fff;padding:26px 28px;border:1px solid var(--rule);display:flex;flex-direction:column;gap:14px}
+  .card .top{display:flex;justify-content:space-between;align-items:center}
+  .card .who{display:flex;align-items:center;gap:12px}
+  .card .av{width:36px;height:36px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:600;font-size:13px}
+  .card .nm{font-weight:600;font-size:14px}
+  .card .dt{font-size:11px;color:var(--muted);letter-spacing:0.08em}
+  .card .stars{color:var(--orange);letter-spacing:2px}
+  .card blockquote{margin:0;font-size:15px;line-height:1.55;color:var(--ink-soft)}
+  .card .g{font-size:11px;color:var(--muted);letter-spacing:0.14em}
+
+  /* ---------- OFFICES (same as home) ---------- */
+  .offices{background:var(--blue-soft);padding:120px 0;position:relative;overflow:hidden}
+  .offices .head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:flex-end;margin-bottom:60px}
+  .offices h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:56px;line-height:1.04;letter-spacing:-0.02em;margin:12px 0 0}
+  .offices h2 em{color:var(--blue);font-style:italic}
+  .offices .head p{font-size:16px;color:var(--ink-soft);line-height:1.6;margin:0;max-width:420px}
+  .offices .body{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
+  .map-wrap{position:relative;aspect-ratio:1/1;background:#CFE4F1;overflow:hidden;border:1px solid var(--rule)}
+  #qld-map{width:100%;height:100%;position:absolute;inset:0}
+  .office-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .office{background:#fff;padding:18px 20px;border:1px solid var(--rule);transition:transform .2s,border-color .2s;cursor:pointer}
+  .office:hover{transform:translateY(-2px);border-color:var(--orange)}
+  .office .loc{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange)}
+  .office .n{font-family:'Instrument Serif',serif;font-size:22px;margin:4px 0 6px;color:var(--ink);letter-spacing:-0.01em}
+  .office .a{font-size:12.5px;color:var(--ink-soft);line-height:1.45}
+  .office .ph{font-size:13px;color:var(--blue);font-weight:600;margin-top:8px}
+
+  /* Service-areas cloud */
+  .service-areas{margin-top:72px;background:#fff;border:1px solid var(--rule);padding:44px 48px}
+  .service-areas h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:26px;margin:0 0 6px;letter-spacing:-0.01em}
+  .service-areas p{font-size:14px;color:var(--ink-soft);margin:0 0 22px;line-height:1.6}
+  .areas-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px 28px}
+  .areas-grid .col{display:flex;flex-direction:column;gap:8px}
+  .areas-grid .col h4{margin:0 0 4px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange)}
+  .areas-grid .col a{font-size:13px;color:var(--ink-soft);padding:2px 0}
+  .areas-grid .col a:hover{color:var(--blue)}
+
+  /* ---------- BLOG (same) ---------- */
+  .blog{background:var(--paper);padding:120px 0}
+  .blog .head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;gap:40px}
+  .blog h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:56px;line-height:1.04;letter-spacing:-0.02em;margin:12px 0 0}
+  .blog h2 em{color:var(--blue);font-style:italic}
+  .blog .head .all{font-size:13px;font-weight:600;color:var(--ink);border-bottom:2px solid var(--orange);padding-bottom:4px}
+  .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+  .post{display:flex;flex-direction:column;gap:16px;cursor:pointer}
+  .post .thumb{aspect-ratio:3/2;overflow:hidden;background:var(--paper-2);position:relative}
+  .post .thumb .ph{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s}
+  .post:hover .thumb .ph{transform:scale(1.04)}
+  .post .cat{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange)}
+  .post .date{color:var(--muted)}
+  .post .meta{display:flex;gap:14px;align-items:center;font-size:12px}
+  .post h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:24px;line-height:1.18;margin:0;letter-spacing:-0.01em;color:var(--ink)}
+  .post p{font-size:14px;color:var(--ink-soft);line-height:1.55;margin:0}
+  .post .rd{font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);font-weight:600;margin-top:4px}
+
+  /* ---------- CTA BAND ---------- */
+  .cta-band{background:var(--ink);color:#fff;padding:80px 0;position:relative;overflow:hidden}
+  .cta-band::before{content:"";position:absolute;right:-100px;top:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(232,100,30,.22),transparent 60%);pointer-events:none}
+  .cta-band .wrap{display:grid;grid-template-columns:1.4fr auto;gap:60px;align-items:center;position:relative}
+  .cta-band h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:52px;line-height:1.06;letter-spacing:-0.02em;margin:0;max-width:720px}
+  .cta-band h2 em{color:var(--orange);font-style:italic}
+  .cta-band .btns{display:flex;gap:14px;align-items:center}
+  .btn-orange{background:var(--orange);color:#fff;padding:18px 28px;font-weight:600;font-size:14px;display:inline-flex;gap:10px;align-items:center;box-shadow:0 1px 0 #B84A10 inset,0 18px 32px -12px rgba(232,100,30,.5)}
+  .btn-orange:hover{background:var(--orange-deep)}
+  .btn-outline{padding:18px 26px;font-weight:600;font-size:14px;border:1px solid rgba(255,255,255,.3);color:#fff;display:inline-flex;gap:10px;align-items:center}
+  .btn-outline:hover{border-color:#fff}
+
+  /* ---------- FOOTER (same) ---------- */
+  footer{background:var(--ink);color:#C7D2E4;padding:80px 0 40px;border-top:1px solid rgba(255,255,255,.08)}
+  footer .wrap{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1fr;gap:60px}
+  footer h4{font-family:'Instrument Serif',serif;font-weight:400;font-size:22px;color:#fff;margin:0 0 20px}
+  footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;font-size:14px}
+  footer ul a:hover{color:#fff}
+  footer .brand img{height:42px;filter:brightness(0) invert(1) opacity(0.95);margin-bottom:18px}
+  footer .brand p{font-size:14px;line-height:1.6;color:#8FA1BE;max-width:320px}
+  footer .bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:60px;padding-top:24px;display:flex;justify-content:space-between;font-size:12px;color:#7a8aa5}
+</style>
+</head>
+<body data-screen-label="Assault Services">
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="left"><span><span class="dot"></span>Available 24/7 — call us anytime</span></div>
+      <div class="right">
+        <a href="#">Brisbane · Gold Coast · Sunshine Coast · Ipswich · Logan · North Lakes · Toowoomba · Hervey Bay</a>
+        <a href="tel:1300952255">☎ 1300 952 255</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="primary">
+    <div class="wrap">
+      <a href="Home.html" class="logo" aria-label="Clarity Law"><img src="assets/logo.jpg" alt="Clarity Law"></a>
+      <div class="navlinks">
+        <a href="#" class="first">First Charge?</a>
+        <a href="#">Team</a>
+        <a href="#">Services</a>
+        <a href="#">Locations</a>
+        <a href="#">Tools</a>
+        <a href="#">Blog</a>
+        <a href="#" class="nav-cta">Get a fixed quote →</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="crumbs">
+    <div class="wrap">
+      <a href="Home.html">Home</a>
+      <span class="sep">/</span>
+      <a href="#">Services</a>
+      <span class="sep">/</span>
+      <span class="here">Assault Charges</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" data-screen-label="Hero">
+    <div class="wrap">
+      <div class="hero-left">
+        <div class="kicker"><span class="line"></span><span class="eyebrow">Criminal Defence · Assault Charges · QLD</span></div>
+        <h1>
+          Charged with <span class="u">assault</span> in&nbsp;Queensland?<br/>
+          You need the lawyers who do <em>this all day.</em>
+        </h1>
+        <p class="hero-lede">
+          From common assault to grievous bodily harm — we've run over <strong>1,000+ assault matters</strong>
+          across every Magistrates, District and Supreme Court in the state. Fixed fees quoted upfront,
+          strategy explained in plain English, a callback within 30&nbsp;minutes.
+        </p>
+
+      </div>
+
+      <!-- STICKY FORM AT TOP OF PAGE -->
+      <aside class="hero-form">
+        <div class="hdr">
+          <span class="pulse"></span>
+          <span class="lbl">Lawyer available now</span>
+        </div>
+        <h3>Free, confidential advice on your assault charge.</h3>
+        <p class="sm">A real expert will call you back <strong>within 30 minutes</strong> (business hours). No obligation, no cost, fixed-fee quote in writing the same day.</p>
+
+        <form onsubmit="event.preventDefault();alert('Thanks — we will call you shortly.')">
+          <div class="hf-row">
+            <div class="hf-field"><label>Name</label><input type="text" placeholder="Your full name" required></div>
+            <div class="hf-field"><label>Phone</label><input type="tel" placeholder="04xx xxx xxx" required></div>
+          </div>
+          <div class="hf-field" style="margin-bottom:10px"><label>Email</label><input type="email" placeholder="you@example.com" required></div>
+          <button class="hf-submit" type="submit">Get my free advice & fixed quote →</button>
+          <div class="hf-foot">
+            <span>🔒 Confidential</span>
+            <span>⏱ 30 min callback</span>
+            <span>✓ No obligation</span>
+          </div>
+        </form>
+
+        <div class="call-line">
+          Prefer to talk now? <a href="tel:1300952255">☎ 1300 952 255</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- PROOF BAR -->
+  <section class="proof">
+    <div class="wrap">
+      <div class="cell">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7L12 17.8 5.7 21.2l1.7-7L2 9.5l7.1-.6L12 2z"/></svg></div>
+        <div class="txt"><div class="n"><em>4.9★</em> on Google</div><div class="l">1,248 reviews</div></div>
+      </div>
+      <div class="cell">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/></svg></div>
+        <div class="txt"><div class="n">Member <em>QLS</em></div><div class="l">Queensland Law Society</div></div>
+      </div>
+      <div class="cell">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <div class="txt"><div class="n"><em>8</em> offices</div><div class="l">Across Queensland</div></div>
+      </div>
+      <div class="cell">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11l5 5 11-11"/></svg></div>
+        <div class="txt"><div class="n"><em>1,000+</em> assaults</div><div class="l">Matters run since 2010</div></div>
+      </div>
+      <div class="cell">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 10h18M7 15h4"/></svg></div>
+        <div class="txt"><div class="n"><em>Fixed</em> fees</div><div class="l">Quoted upfront</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHARGE LIST -->
+  <section class="charges" data-screen-label="Charge Types">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Every type of assault — covered</span>
+          <h2>Pick your charge. We've <em>dealt with it before.</em></h2>
+        </div>
+        <p>Queensland's Criminal Code names a dozen different assault offences, each with its own elements, defences and sentencing range. Here's what we run — tap any charge for the full breakdown.</p>
+      </div>
+
+      <div class="chg-grid">
+        <a class="chg" href="#">
+          <h3>Common Assault</h3>
+          <div class="desc">Threats, shoves, or minor contact without lasting injury. Section 335, Criminal Code. Often resolves with a small fine and no conviction recorded when properly handled.</div>
+          <div class="meta"><span class="max">Max 3 yrs</span><span class="arrow">Read more →</span></div>
+        </a>
+        <a class="chg" href="#">
+          <div class="tag">Serious</div>
+          <h3>Assault Occasioning Bodily Harm</h3>
+          <div class="desc">AOBH — assault that causes actual injury (bruising, cuts, swelling). Section 339. Escalates significantly if a weapon or company is involved.</div>
+          <div class="meta"><span class="max">Max 7 yrs</span><span class="arrow">Read more →</span></div>
+        </a>
+        <a class="chg" href="#">
+          <div class="tag">Indictable</div>
+          <h3>Grievous Bodily Harm</h3>
+          <div class="desc">GBH — serious or life-threatening injury. Section 320. District Court matter. Custodial outcomes are common without expert defence.</div>
+          <div class="meta"><span class="max">Max 14 yrs</span><span class="arrow">Read more →</span></div>
+        </a>
+        <a class="chg" href="#">
+          <div class="tag">Circumstance of aggravation</div>
+          <h3>Serious Assault</h3>
+          <div class="desc">Assault on police, public officers, the elderly or people with a disability. Section 340. Mandatory considerations at sentence.</div>
+          <div class="meta"><span class="max">Max 14 yrs</span><span class="arrow">Read more →</span></div>
+        </a>
+        <a class="chg" href="#">
+          <div class="tag">Indictable</div>
+          <h3>Wounding</h3>
+          <div class="desc">Any injury that breaks the skin's second layer. Section 323. More common than people realise — a single cut can be charged as wounding.</div>
+          <div class="meta"><span class="max">Max 7 yrs</span><span class="arrow">Read more →</span></div>
+        </a>
+        <a class="chg" href="#">
+          <div class="tag">Public order</div>
+          <h3>Affray</h3>
+          <div class="desc">Using unlawful violence in a way that would frighten a bystander. Section 72. Often arises from pub or street fights involving multiple people.</div>
+          <div class="meta"><span class="max">Max 7 yrs</span><span class="arrow">Read more →</span></div>
+        </a>
+        <a class="chg" href="#">
+          <div class="tag">Serious indictable</div>
+          <h3>Choking &amp; Strangulation</h3>
+          <div class="desc">In a domestic setting. Section 315A. Carries significant weight at sentence — strong defence and early advice are essential.</div>
+          <div class="meta"><span class="max">Max 7 yrs</span><span class="arrow">Read more →</span></div>
+        </a>
+        <a class="chg" href="#">
+          <div class="tag">Aggravated</div>
+          <h3>Assault Police Officer</h3>
+          <div class="desc">Biting, spitting, kicking or striking a police officer in execution of duty. Aggravated category of serious assault — custodial starting point.</div>
+          <div class="meta"><span class="max">Max 14 yrs</span><span class="arrow">Read more →</span></div>
+        </a>
+        <a class="chg" href="#">
+          <div class="tag">Sexual offence</div>
+          <h3>Sexual Assault</h3>
+          <div class="desc">Unlawful sexual assault — Section 352. Treated with absolute discretion and genuine expertise. Outcomes depend heavily on evidence.</div>
+          <div class="meta"><span class="max">Max 10 yrs</span><span class="arrow">Read more →</span></div>
+        </a>
+        <a class="chg" href="#">
+          <div class="tag">Domestic</div>
+          <h3>Domestic Violence Assault</h3>
+          <div class="desc">Any of the above in a domestic setting becomes a DV offence — flagged on your record, triggers a protection order, sentenced more heavily.</div>
+          <div class="meta"><span class="max">Varies</span><span class="arrow">Read more →</span></div>
+        </a>
+        <a class="chg" href="#">
+          <div class="tag">Aggravated</div>
+          <h3>Assault with Intent</h3>
+          <div class="desc">Assault committed with intent to commit another indictable offence — e.g. robbery. Section 341. Always indictable, always serious.</div>
+          <div class="meta"><span class="max">Max 14 yrs</span><span class="arrow">Read more →</span></div>
+        </a>
+        <a class="chg" href="#">
+          <div class="tag">Other</div>
+          <h3>Not sure what you're charged with?</h3>
+          <div class="desc">Read your Notice to Appear, Bail Undertaking or QP9 and call us — we'll translate the section number into plain English in under 5 minutes.</div>
+          <div class="meta"><span class="max">Free call</span><span class="arrow">Talk to us →</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE DEFEND — three pillars -->
+  <section class="approach" data-screen-label="How We Defend">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">How we defend an assault charge</span>
+          <h2>There's a playbook. <em>We wrote ours over 16 years.</em></h2>
+        </div>
+        <p>Every assault matter is different, but the approach is the same: examine the evidence, test every element, and prepare as though we're running the trial — even on a plea. That preparation is what moves the outcome.</p>
+      </div>
+
+      <div class="approach-intro">
+        <div class="steven-portrait">
+          <div class="sig">Steven &mdash; Founder</div>
+          <img src="assets/lawyers/steven.png" alt="Steven Brough, Founder &amp; Director, Clarity Law">
+          <div class="caption">
+            <div class="q">"One incident shouldn't define your future — not when the system allows for a better ending."</div>
+            <div class="r">Steven Brough · Founder &amp; Director</div>
+          </div>
+        </div>
+        <div class="words">
+          <h3>16 years. 1,000+ assault matters. <em>One playbook.</em></h3>
+          <p>Since founding Clarity Law in 2010, I've personally run or supervised every type of assault matter Queensland law recognises — from a bar-room shove in the Magistrates Court to a week-long GBH trial in the District Court.</p>
+          <p>What follows isn't theory. It's the three-stage approach we apply to every single assault charge that walks through our door — the same approach behind most of the no-conviction outcomes you'll read about on this page.</p>
+          <div class="creds">
+            <div class="c"><div class="n"><em>1,000+</em></div><div class="l">Assault matters</div></div>
+            <div class="c"><div class="n">25<span style="color:var(--orange)">+</span></div><div class="l">Years experience</div></div>
+            <div class="c"><div class="n">8</div><div class="l">Specialist lawyers</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pillars">
+        <div class="pillar">
+          <div class="num"><em>01</em></div>
+          <h3>Fight it — defences in play</h3>
+          <p>Before any plea, we test whether the prosecution can actually prove the charge. On assault matters, real defences exist and are regularly missed.</p>
+          <ul class="bullets">
+            <li>Self-defence &amp; defence of another (s 271)</li>
+            <li>Provocation (s 269)</li>
+            <li>Accident &amp; lack of intent</li>
+            <li>Consent (for non-DV matters)</li>
+            <li>Identification issues &amp; CCTV analysis</li>
+          </ul>
+        </div>
+
+        <div class="pillar">
+          <div class="num">02</div>
+          <h3>Downgrade it — charge negotiation</h3>
+          <p>Where a total defence isn't realistic, the question becomes: is the charge overstated? GBH dropped to AOBH, AOBH dropped to common assault — these negotiations routinely change the sentencing range entirely.</p>
+          <ul class="bullets">
+            <li>Pre-charge representations</li>
+            <li>Briefs of evidence reviewed line-by-line</li>
+            <li>Medical reports &amp; injury analysis</li>
+            <li>Prosecutor-level negotiation</li>
+          </ul>
+        </div>
+
+        <div class="pillar">
+          <div class="num"><em>03</em></div>
+          <h3>Minimise it — sentencing strategy</h3>
+          <p>When the matter is ultimately going on a plea, the work shifts to the sentence. No-conviction outcomes on assault happen — but they don't happen by accident.</p>
+          <ul class="bullets">
+            <li>Section 12 (no conviction) submissions</li>
+            <li>Character references &amp; rehabilitation material</li>
+            <li>Psychological / medical reports where relevant</li>
+            <li>Apology letters &amp; restorative options</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTCOMES STRIP -->
+  <section class="outcomes" data-screen-label="Recent Outcomes">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Recent assault outcomes</span>
+        <h2>Real matters. <em>Real results.</em></h2>
+        <p>A sample of assault matters we've resolved recently. Every case is different; past results are not a guarantee — but they show what's possible with proper preparation.</p>
+      </div>
+      <div class="out-grid">
+        <div class="out">
+          <div class="charge">Common Assault · 2026</div>
+          <div class="outcome"><em>No conviction</em> recorded</div>
+          <div class="det">Client (nurse, no history) charged after a verbal altercation escalated outside a venue. Section 12 submissions accepted. Small fine, no conviction, career preserved.</div>
+          <div class="foot"><span class="court">Brisbane Magistrates</span><span>Plea</span></div>
+        </div>
+        <div class="out">
+          <div class="charge">AOBH · 2026</div>
+          <div class="outcome">Downgraded to <em>common assault</em></div>
+          <div class="det">Injuries disputed on medical review. Charge downgraded pre-plea. Client placed on 12-month good behaviour bond, no conviction recorded, licence to work unaffected.</div>
+          <div class="foot"><span class="court">Gold Coast Magistrates</span><span>Negotiation</span></div>
+        </div>
+        <div class="out">
+          <div class="charge">GBH · 2025</div>
+          <div class="outcome">Guilty verdict <em>set aside</em></div>
+          <div class="det">Self-defence fully argued at trial after earlier refusal by prosecution. Not guilty on both counts. Client walked out of District Court with no conviction.</div>
+          <div class="foot"><span class="court">Brisbane District</span><span>Trial</span></div>
+        </div>
+      </div>
+      <p class="out-note">* Details anonymised. Every matter turns on its own facts. We make no promises about future outcomes.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" data-screen-label="FAQ">
+    <div class="wrap">
+      <div class="faq-left">
+        <span class="eyebrow">The questions we hear every day</span>
+        <h2>Straight answers. <em>No legalese.</em></h2>
+        <p class="sub">These are the questions clients ask us before they sign up. If yours isn't here, ring us — we'll answer it in plain English on the spot.</p>
+        <a class="faq-cta" href="tel:1300952255">☎ Call 1300 952 255</a>
+      </div>
+      <div class="faq-list">
+        <details class="qa" open>
+          <summary>Will I go to jail for an assault charge in Queensland? <span class="icon">+</span></summary>
+          <div class="body">
+            <p>Not automatically. Whether jail is a realistic outcome depends on <strong>which assault you're charged with</strong> (common assault, AOBH, GBH, serious assault, etc.), your criminal history, the circumstances, and the severity of any injuries.</p>
+            <p>Many assault matters — especially first offences, common assault, and minor AOBH — resolve with a fine, probation, or a good-behaviour bond, often with <strong>no conviction recorded</strong> where we can argue section 12. For indictable matters like GBH, jail becomes a realistic consideration, which is why preparation from day one matters.</p>
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>Can I get a "no conviction recorded" outcome for assault? <span class="icon">+</span></summary>
+          <div class="body">
+            <p>Yes — it's possible in many cases. Under section 12 of the Penalties and Sentences Act, the court can impose a penalty without recording a conviction. It's most often available for common assault and minor AOBH matters with no (or limited) prior history.</p>
+            <p>The court considers the nature of the offence, the offender, and the impact of a conviction on employment, travel and personal circumstances. <strong>Well-prepared submissions, character references and rehabilitation material make a real difference.</strong></p>
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>What is the difference between common assault, AOBH and GBH? <span class="icon">+</span></summary>
+          <div class="body">
+            <p><strong>Common assault</strong> (s 335) — threat or application of force without actual injury. Max penalty 3 years. Usually dealt with in the Magistrates Court.</p>
+            <p><strong>Assault occasioning bodily harm</strong> (s 339) — assault that causes actual injury that interferes with health or comfort (bruising, cuts, swelling). Max 7 years. Heard in Magistrates unless aggravated.</p>
+            <p><strong>Grievous bodily harm</strong> (s 320) — serious or life-threatening injury, permanent injury, or loss of a distinct part or organ. Max 14 years. Always dealt with in the District Court.</p>
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>How much does an assault lawyer cost? <span class="icon">+</span></summary>
+          <div class="body">
+            <p>At Clarity Law we quote a <strong>fixed fee in writing</strong> before we start — no hourly rates, no surprise bills. The fee depends on the charge, the court, and whether it's a plea or a trial.</p>
+            <p>As a guide: straightforward common assault pleas in Magistrates Court start in the low thousands. AOBH and more complex matters scale from there. District Court trials are quoted individually. <strong>The first phone call is always free.</strong></p>
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>Should I plead guilty to assault? <span class="icon">+</span></summary>
+          <div class="body">
+            <p><strong>Never decide before you get advice.</strong> We review the full brief of evidence — statements, CCTV, medical reports — before advising on plea.</p>
+            <p>Self-defence, provocation, accident, and factual disputes are all worth exploring first. Even if a plea is ultimately the right move, there's almost always room to negotiate the charge down, or to present the facts in a way that meaningfully reduces the sentence.</p>
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>What should I do if I'm being questioned by police? <span class="icon">+</span></summary>
+          <div class="body">
+            <p>You have the <strong>right to silence</strong>. You are only required to provide your name, date of birth and address. Beyond that, politely decline to answer questions until you have spoken to a lawyer.</p>
+            <p>Do not try to explain your side, apologise, or "set the record straight" — these statements almost always end up in the prosecution brief and are used against you. Call us immediately; we'll guide you through the next 24 hours.</p>
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>Can I claim self-defence? <span class="icon">+</span></summary>
+          <div class="body">
+            <p>Yes — self-defence is a complete defence to assault under sections 271 and 272 of the Queensland Criminal Code. If successful, you are acquitted.</p>
+            <p>It requires that you believed you (or another person) were under unlawful attack, that your response was a reasonable one in the circumstances, and that the force used was not disproportionate. <strong>The prosecution has to disprove self-defence beyond reasonable doubt.</strong> Whether it's viable depends entirely on the facts — we can tell you after one conversation.</p>
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>Will an assault charge affect my employment, visa or Blue Card? <span class="icon">+</span></summary>
+          <div class="body">
+            <p>It can. A recorded conviction for assault will appear on a National Police Check and can affect Blue Cards, Yellow Cards, nursing and teacher registration, visas, and many professional licences.</p>
+            <p>This is exactly why a <strong>section 12 no-conviction outcome</strong> is so valuable — and why we invest heavily in sentencing strategy. We routinely represent nurses, teachers, tradies with Blue Cards, aviation workers and visa holders where the stakes go well beyond the court penalty.</p>
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>What happens at my first court appearance for assault? <span class="icon">+</span></summary>
+          <div class="body">
+            <p>Your first appearance is called a <strong>mention</strong>. You don't need to enter a plea — and in most cases you shouldn't. We'll typically ask for an adjournment to obtain the brief of evidence, review it properly, and advise you on whether to fight, negotiate or plead.</p>
+            <p>If you've been charged and put on bail, we'll attend court with you on the day. If you've been remanded, we'll appear at your bail application first.</p>
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>Do you travel to regional courts? <span class="icon">+</span></summary>
+          <div class="body">
+            <p>Yes. We regularly appear across Queensland — Bundaberg, Maryborough, Kingaroy, Dalby, Warwick, Caboolture, Redcliffe, Coolangatta, Beenleigh, Beaudesert and beyond. Travel is included in the fixed fee where practical, or quoted separately upfront. <strong>No surprises.</strong></p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews" data-screen-label="Reviews">
+    <div class="head">
+      <div>
+        <span class="eyebrow">From our clients</span>
+        <h2>Words from the <em>other side of it.</em></h2>
+      </div>
+      <div class="gmeta"><div><span class="stars">★★★★★</span> &nbsp;<strong>4.9</strong> · 1,248 Google reviews</div></div>
+    </div>
+    <div class="marquee"><div class="track" id="track1"></div></div>
+    <div class="marquee reverse"><div class="track" id="track2"></div></div>
+  </section>
+
+  <!-- OFFICES -->
+  <section class="offices" data-screen-label="Offices">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Where we appear · where we service</span>
+          <h2>Eight offices. Every QLD court. <em>One local lawyer for you.</em></h2>
+        </div>
+        <p>We appear in Magistrates, District and Supreme Courts right across Queensland. Having a lawyer who knows your magistrate by name isn't a luxury — it's leverage.</p>
+      </div>
+
+      <div class="body">
+        <div class="map-wrap">
+          <div id="qld-map"></div>
+          <div style="position:absolute;left:14px;bottom:14px;z-index:500;background:rgba(19,43,94,0.92);color:#fff;padding:8px 14px;font-family:'Inter Tight',sans-serif;font-size:10px;letter-spacing:0.18em;text-transform:uppercase">South East Queensland</div>
+        </div>
+
+        <div class="office-list">
+          <div class="office"><div class="loc">QLD / 01</div><div class="n">Brisbane</div><div class="a">Level 1, 16 McDougall St<br/>Milton QLD 4064</div><div class="ph">07 3067 7017</div></div>
+          <div class="office"><div class="loc">QLD / 02</div><div class="n">Gold Coast</div><div class="a">Level 15, 2 Corporate Court<br/>Bundall QLD 4217</div><div class="ph">07 5613 2683</div></div>
+          <div class="office"><div class="loc">QLD / 03</div><div class="n">Sunshine Coast</div><div class="a">Suite 8, 84 Wises Road<br/>Maroochydore QLD 4558</div><div class="ph">1300 952 255</div></div>
+          <div class="office"><div class="loc">QLD / 04</div><div class="n">North Brisbane</div><div class="a">3/22-24 Strathwyn Street<br/>Brendale QLD 4500</div><div class="ph">07 3485 0184</div></div>
+          <div class="office"><div class="loc">QLD / 05</div><div class="n">Ipswich</div><div class="a">16 East Street<br/>Ipswich QLD 4305</div><div class="ph">07 3485 0147</div></div>
+          <div class="office"><div class="loc">QLD / 06</div><div class="n">Logan</div><div class="a">Level 2, 3972 Pacific Hwy<br/>Loganholme QLD 4129</div><div class="ph">07 3668 0683</div></div>
+          <div class="office"><div class="loc">QLD / 07</div><div class="n">Toowoomba</div><div class="a">123 Margaret Street<br/>Toowoomba QLD 4350</div><div class="ph">1300 952 255</div></div>
+          <div class="office"><div class="loc">QLD / 08</div><div class="n">Hervey Bay</div><div class="a">Unit 3, 6 Liuzzi St<br/>Hervey Bay QLD 4655</div><div class="ph">07 3485 0184</div></div>
+        </div>
+      </div>
+
+      <div class="service-areas">
+        <h3>Assault matters — where we appear across Queensland</h3>
+        <p>Beyond our offices, we regularly attend these courts and service surrounding areas for assault charges. If you're in doubt, call us — we travel.</p>
+        <div class="areas-grid">
+          <div class="col">
+            <h4>South East</h4>
+            <a href="#">Brisbane Magistrates</a>
+            <a href="#">Richlands</a>
+            <a href="#">Holland Park</a>
+            <a href="#">Wynnum</a>
+            <a href="#">Cleveland</a>
+            <a href="#">Redcliffe</a>
+            <a href="#">Caboolture</a>
+          </div>
+          <div class="col">
+            <h4>Gold Coast &amp; Logan</h4>
+            <a href="#">Southport</a>
+            <a href="#">Coolangatta</a>
+            <a href="#">Beenleigh</a>
+            <a href="#">Beaudesert</a>
+            <a href="#">Loganholme</a>
+            <a href="#">Cleveland</a>
+          </div>
+          <div class="col">
+            <h4>Western QLD</h4>
+            <a href="#">Ipswich</a>
+            <a href="#">Gatton</a>
+            <a href="#">Toowoomba</a>
+            <a href="#">Dalby</a>
+            <a href="#">Warwick</a>
+            <a href="#">Kingaroy</a>
+          </div>
+          <div class="col">
+            <h4>Coast &amp; North</h4>
+            <a href="#">Maroochydore</a>
+            <a href="#">Noosa</a>
+            <a href="#">Gympie</a>
+            <a href="#">Hervey Bay</a>
+            <a href="#">Maryborough</a>
+            <a href="#">Bundaberg</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band" data-screen-label="CTA">
+    <div class="wrap">
+      <h2>Charged with assault? <em>Don't sit with it alone tonight.</em></h2>
+      <div class="btns">
+        <a href="tel:1300952255" class="btn-orange">☎ Call 1300 952 255</a>
+        <a href="#" class="btn-outline">Request a callback →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section class="blog" data-screen-label="Blog">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Latest on assault charges</span>
+          <h2>Things worth <em>knowing before court.</em></h2>
+        </div>
+        <a href="#" class="all">View all assault posts →</a>
+      </div>
+      <div class="blog-grid">
+        <article class="post">
+          <div class="thumb"><div class="ph" style="background-image:linear-gradient(135deg,#1E3A6E,#2563C9)"></div></div>
+          <div class="meta"><span class="cat">Common Assault</span><span class="date">12 Apr 2026</span></div>
+          <h3>Can I get a no-conviction outcome for common assault in Queensland?</h3>
+          <p>A walk-through of section 12 arguments, the factors that matter, and the outcomes we've achieved in the last 12 months.</p>
+          <span class="rd">Read — 5 min</span>
+        </article>
+        <article class="post">
+          <div class="thumb"><div class="ph" style="background-image:linear-gradient(135deg,#C44E0F,#E8641E)"></div></div>
+          <div class="meta"><span class="cat">Self-Defence</span><span class="date">04 Apr 2026</span></div>
+          <h3>Self-defence in Queensland: when it actually works (and when it doesn't)</h3>
+          <p>A plain-English guide to sections 271 &amp; 272, with real examples from recent Queensland trials and appeals.</p>
+          <span class="rd">Read — 8 min</span>
+        </article>
+        <article class="post">
+          <div class="thumb"><div class="ph" style="background-image:linear-gradient(135deg,#132B5E,#2563C9)"></div></div>
+          <div class="meta"><span class="cat">AOBH / GBH</span><span class="date">28 Mar 2026</span></div>
+          <h3>AOBH vs GBH: the difference that can mean 7 more years in prison</h3>
+          <p>How prosecutors decide which charge to lay — and how early intervention can move the needle dramatically.</p>
+          <span class="rd">Read — 6 min</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap" style="grid-template-columns:1.6fr 1fr 1fr 1fr 1fr">
+      <div class="brand">
+        <img src="assets/logo.jpg" alt="Clarity Law">
+        <p>Queensland's expert criminal law firm. Eight offices, eight lawyers, one job: getting you the best outcome possible at a fixed price.</p>
+        <div style="margin-top:20px;font-size:13px;color:#8FA1BE">
+          <div style="color:#fff;font-weight:600;margin-bottom:6px">☎ 1300 952 255</div>
+          <div>Available 7 days · 7am – 7pm</div>
+        </div>
+      </div>
+      <div>
+        <h4>Assault Charges</h4>
+        <ul>
+          <li><a href="#">Common Assault</a></li>
+          <li><a href="#">AOBH</a></li>
+          <li><a href="#">Grievous Bodily Harm</a></li>
+          <li><a href="#">Serious Assault</a></li>
+          <li><a href="#">Wounding</a></li>
+          <li><a href="#">Affray</a></li>
+          <li><a href="#">Choking / Strangulation</a></li>
+          <li><a href="#">Assault Police</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Offices</h4>
+        <ul>
+          <li><a href="#">Brisbane (Milton)</a></li>
+          <li><a href="#">Gold Coast (Bundall)</a></li>
+          <li><a href="#">Sunshine Coast</a></li>
+          <li><a href="#">North Brisbane</a></li>
+          <li><a href="#">Ipswich</a></li>
+          <li><a href="#">Logan</a></li>
+          <li><a href="#">Toowoomba</a></li>
+          <li><a href="#">Hervey Bay</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">First Charge? Guide</a></li>
+          <li><a href="#">Fixed-fee Calculator</a></li>
+          <li><a href="#">Sentencing Guide</a></li>
+          <li><a href="#">Court Locations</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Urgent?</h4>
+        <ul>
+          <li><a href="tel:1300952255">Call 1300 952 255</a></li>
+          <li><a href="#">Email us</a></li>
+          <li><a href="#">Online enquiry</a></li>
+          <li><a href="#">Find my office</a></li>
+        </ul>
+        <div style="margin-top:24px;padding:14px;background:rgba(232,100,30,.15);border-left:3px solid var(--orange)">
+          <div style="font-size:12px;color:#B8C3D6;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px">Member</div>
+          <div style="font-size:14px;color:#fff;font-weight:600">Queensland Law Society</div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap bottom">
+      <span>© 2026 Clarity Law Pty Ltd · ABN 00 000 000 000</span>
+      <span>Privacy Policy · Terms of Use · QLS member firm</span>
+    </div>
+  </footer>
+
+<script>
+  // REVIEWS
+  const row1 = [
+    {nm:"Emma R.", dt:"2 weeks ago", t:"Charged with common assault after a night out I couldn't remember clearly. Steven walked me through every option. Section 12 accepted, no conviction. I can't thank them enough."},
+    {nm:"Marcus T.", dt:"1 month ago", t:"AOBH charge downgraded to common assault after they reviewed the medical reports line by line. Fixed fee, no surprises, outcome better than I dared hope for."},
+    {nm:"Jayden P.", dt:"3 weeks ago", t:"Self-defence. They backed me when no-one else would even consider it. Jury returned not guilty in under an hour. I have my life back."},
+    {nm:"Hannah W.", dt:"5 days ago", t:"My son was charged with serious assault. Belinda took the call on a Sunday. By Tuesday we had a plan, by Friday he had a lawyer in court who already knew the magistrate."},
+    {nm:"David K.", dt:"2 months ago", t:"Alleged pub fight. They subpoenaed the CCTV the police hadn't bothered to look at. Charge withdrawn at the second mention. Professional the whole way."},
+    {nm:"Sam O.", dt:"6 weeks ago", t:"Drove from Bundaberg for an AOBH matter. Worth every kilometre. They knew the prosecutor by name and had a clear plan before I'd even sat down."},
+    {nm:"Tegan F.", dt:"1 week ago", t:"Jack took my bail application at 9pm on a Sunday. Got bail next morning on a serious assault charge. Can't thank him enough."},
+    {nm:"Michael B.", dt:"3 weeks ago", t:"Very impressed with how quickly they responded. Got a no-conviction result on a common assault charge I thought was hopeless."},
+    {nm:"Priya N.", dt:"3 months ago", t:"Straightforward, no-fuss, fixed price. They told me exactly what to worry about and what not to — turned out most of it was the second category."},
+    {nm:"Ben L.", dt:"2 weeks ago", t:"Will was prepared. So prepared the other side folded half their AOBH case before lunch. Outstanding representation."},
+  ];
+  const row2 = [
+    {nm:"Rob H.", dt:"4 weeks ago", t:"Second-time client for an unrelated assault matter. Glad they were still here. Same plain English, same result — no conviction recorded."},
+    {nm:"Courtney M.", dt:"10 days ago", t:"I was terrified walking into District Court for my GBH charge. Steven met me outside, walked me through what would happen. It went exactly as he said."},
+    {nm:"James D.", dt:"5 weeks ago", t:"Russell handled my Gold Coast assault matter. He knew the magistrate, knew the prosecutor, got me a no-conviction outcome. Fixed fee, no surprises."},
+    {nm:"Alicia T.", dt:"2 months ago", t:"Called Thursday, in court Monday, AOBH charge dismissed Wednesday. Belinda kept me updated the whole time. Incredible service from a genuinely nice team."},
+    {nm:"Nathan G.", dt:"3 weeks ago", t:"Convinced I'd lose my job over a serious assault charge. Jacob got it dealt with quietly, no conviction recorded. Still can't believe it. Thank you."},
+    {nm:"Sarah-Jane K.", dt:"6 days ago", t:"As a nurse a conviction for AOBH would have ended my career. They understood the stakes and fought accordingly. No conviction. I will never forget what they did."},
+    {nm:"Chris P.", dt:"7 weeks ago", t:"Called after midnight in a panic after being charged with assault police. They answered. Calm, capable, on my side the whole way through."},
+    {nm:"Melissa O.", dt:"1 month ago", t:"Every single thing they said would happen, happened. No drama, no confusion. Great result on a common assault, and a fair fixed price."},
+    {nm:"Dylan F.", dt:"2 weeks ago", t:"Braden represented me at Sunshine Coast for a wounding charge. Young guy but absolutely sharp — knew the case inside out, made strong submissions."},
+    {nm:"Karen W.", dt:"5 weeks ago", t:"Steven is the lawyer you hope you never need but are grateful for when you do. Assault charge, no conviction, zero lecture. Just a plan and a result."},
+  ];
+  const initials = n => n.split(' ').map(s=>s[0]).join('').slice(0,2);
+  const hues = ["#2563C9","#132B5E","#E8641E","#1748A0","#C44E0F"];
+  function cardHTML(r,i){
+    return `<div class="card"><div class="top"><div class="who"><div class="av" style="background:${hues[i%hues.length]}">${initials(r.nm)}</div><div><div class="nm">${r.nm}</div><div class="dt">${r.dt}</div></div></div><div class="stars">★★★★★</div></div><blockquote>"${r.t}"</blockquote><div class="g">G · Google review</div></div>`;
+  }
+  function fill(id, items){
+    const el=document.getElementById(id);
+    el.innerHTML = items.concat(items).map(cardHTML).join('');
+  }
+  fill('track1', row1);
+  fill('track2', row2);
+
+  // Leaflet map init (same as home)
+  (function initMap(){
+    if (!window.L) return;
+    const c = document.getElementById('qld-map');
+    if (!c) return;
+    const map = L.map(c, {zoomControl:false, attributionControl:false, dragging:false, scrollWheelZoom:false, doubleClickZoom:false, touchZoom:false, boxZoom:false, keyboard:false, zoomSnap:0.25});
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}', {maxZoom:8}).addTo(map);
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', {maxZoom:13, opacity:0.6}).addTo(map);
+    const offices = [
+      {n:'Hervey Bay', c:[-25.2882,152.8644], a:'b-r'},
+      {n:'Toowoomba', c:[-27.5598,151.9507], a:'b-l'},
+      {n:'Sunshine Coast', c:[-26.6600,153.0900], a:'b-r'},
+      {n:'North Brisbane', c:[-27.3280,152.9730], a:'b-r'},
+      {n:'Ipswich', c:[-27.6162,152.7609], a:'b-l'},
+      {n:'Brisbane', c:[-27.4700,153.0050], a:'b-c'},
+      {n:'Logan', c:[-27.7100,153.1500], a:'b-r'},
+      {n:'Gold Coast', c:[-28.0000,153.4200], a:'b-r'}
+    ];
+    const makeIcon = (n,a) => {
+      let ls = 'left:50%;transform:translateX(-50%)';
+      if (a==='b-l') ls = 'right:10px;left:auto';
+      if (a==='b-r') ls = 'left:10px;right:auto';
+      return L.divIcon({className:'',iconSize:[1,1],iconAnchor:[0,0],
+        html:`<div style="position:relative;transform:translate(-50%,-100%);pointer-events:none"><div style="position:absolute;bottom:18px;${ls};background:#132B5E;color:#fff;font-family:'Inter Tight',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.06em;padding:3px 9px;white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,.25)">${n}</div><div style="width:14px;height:14px;background:#E8641E;border:3px solid #fff;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.3);position:relative;z-index:2"></div></div>`});
+    };
+    offices.forEach(o => L.marker(o.c, {icon: makeIcon(o.n,o.a), interactive:false}).addTo(map));
+    map.fitBounds(L.latLngBounds(offices.map(o=>o.c)), {padding:[50,50]});
+  })();
+</script>
+</body>
+</html>

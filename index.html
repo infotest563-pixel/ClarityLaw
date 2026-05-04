@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Clarity Law — Page Index</title>
+<template id="__bundler_thumbnail" data-bg-color="#FCFAF5">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#FCFAF5"/>
+    <text x="600" y="380" text-anchor="middle" font-family="Instrument Serif, serif" font-size="180" fill="#0B1B2B" font-style="italic">Clarity</text>
+    <text x="600" y="540" text-anchor="middle" font-family="Instrument Serif, serif" font-size="180" fill="#2563C9" font-style="italic">Law</text>
+    <rect x="540" y="600" width="120" height="6" fill="#E8641E"/>
+  </svg>
+</template>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#0B1B2B;--paper:#FCFAF5;--paper-2:#F4EFE4;--rule:#E7E0D0;--blue:#2563C9;--blue-ink:#132B5E;--orange:#E8641E;--muted:#6B7280}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter Tight',system-ui,sans-serif;-webkit-font-smoothing:antialiased;padding:80px 40px}
+  .wrap{max-width:1100px;margin:0 auto}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:14px;margin-bottom:22px}
+  .eyebrow .line{width:48px;height:1px;background:var(--ink);opacity:.4}
+  h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:72px;line-height:1;letter-spacing:-0.025em;margin:0 0 20px}
+  h1 em{color:var(--blue);font-style:italic}
+  .lede{font-size:17px;line-height:1.6;color:#1F3348;max-width:620px;margin:0 0 56px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px}
+  .card{background:#fff;border:1px solid var(--rule);padding:32px 30px;display:flex;flex-direction:column;gap:14px;color:inherit;text-decoration:none;transition:transform .2s,border-color .2s,box-shadow .2s;position:relative;overflow:hidden}
+  .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange);transform:scaleY(0);transform-origin:bottom;transition:transform .25s}
+  .card:hover{transform:translateY(-4px);border-color:var(--blue);box-shadow:0 24px 48px -24px rgba(11,27,43,.18)}
+  .card:hover::before{transform:scaleY(1);transform-origin:top}
+  .num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;color:var(--orange)}
+  .ttl{font-family:'Instrument Serif',serif;font-weight:400;font-size:30px;line-height:1.1;letter-spacing:-0.015em;margin:2px 0 4px}
+  .ttl em{color:var(--blue);font-style:italic}
+  .desc{font-size:14px;color:#1F3348;line-height:1.55;margin:0}
+  .meta{margin-top:auto;padding-top:14px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
+  .meta .open{color:var(--ink);font-weight:600}
+  .foot{margin-top:60px;font-size:13px;color:var(--muted);font-style:italic;letter-spacing:0.02em}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="eyebrow"><span class="line"></span>Clarity Law · SEO design exploration · 5 pages</div>
+    <h1>Five SEO pages, <em>one design system.</em></h1>
+    <p class="lede">Quick index for navigating between the five page designs. Each is a complete, standalone HTML file — open them individually or bounce between them via the shared top-nav inside each page.</p>
+
+    <div class="grid">
+      <a class="card" href="assault-lawyers-sunshine-coast.html">
+        <span class="num">PAGE 01 · Local landing</span>
+        <h2 class="ttl">Assault Lawyers <em>Sunshine Coast</em></h2>
+        <p class="desc">Location-specific landing page. Map of the Sunshine Coast, postcode coverage, courts list, local team & callback form.</p>
+        <div class="meta"><span>assault-lawyers-sunshine-coast.html</span><span class="open">Open →</span></div>
+      </a>
+
+      <a class="card" href="contact.html">
+        <span class="num">PAGE 02 · Contact</span>
+        <h2 class="ttl">Contact <em>Us</em></h2>
+        <p class="desc">Direct-call hero, four office cards, callback form, opening hours and a help-now CTA strip.</p>
+        <div class="meta"><span>contact.html</span><span class="open">Open →</span></div>
+      </a>
+
+      <a class="card" href="serious-assault.html">
+        <span class="num">PAGE 03 · Service deep-dive</span>
+        <h2 class="ttl">Serious <em>Assault (s 340)</em></h2>
+        <p class="desc">Six circumstances of aggravation, penalties table, defences grid, recent outcomes, and an FAQ sized for legal questions.</p>
+        <div class="meta"><span>serious-assault.html</span><span class="open">Open →</span></div>
+      </a>
+
+      <a class="card" href="beenleigh-magistrates-court.html">
+        <span class="num">PAGE 04 · Court guide</span>
+        <h2 class="ttl">Beenleigh <em>Magistrates Court</em></h2>
+        <p class="desc">Practical court guide. Hand-drawn courthouse SVG, map, courtroom floorplan, hour-by-hour timeline & dress code.</p>
+        <div class="meta"><span>beenleigh-magistrates-court.html</span><span class="open">Open →</span></div>
+      </a>
+
+      <a class="card" href="legal-fees.html">
+        <span class="num">PAGE 05 · Pricing</span>
+        <h2 class="ttl">Legal <em>Fees</em></h2>
+        <p class="desc">Receipt-style hero, fixed-fee vs hourly comparison, filterable price table by charge type, includes/excludes breakdown.</p>
+        <div class="meta"><span>legal-fees.html</span><span class="open">Open →</span></div>
+      </a>
+    </div>
+
+    <p class="foot">All pages share fonts, palette, top-nav and footer — but each leans into a different layout vocabulary appropriate to its content type.</p>
+  </div>
+</body>
+</html>

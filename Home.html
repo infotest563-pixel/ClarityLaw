@@ -1,0 +1,904 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1440" />
+<title>Clarity Law — Queensland Criminal Lawyers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500;600;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  :root{
+    --ink:#0B1B2B;
+    --ink-soft:#1F3348;
+    --paper:#FCFAF5;
+    --paper-2:#F4EFE4;
+    --rule:#E7E0D0;
+    --blue:#2563C9;          /* brand blue — lighter for better contrast w/ orange */
+    --blue-deep:#1748A0;
+    --blue-ink:#132B5E;
+    --blue-soft:#EAF1FC;
+    --orange:#E8641E;
+    --orange-deep:#C44E0F;
+    --gold:#C9A24B;           /* from logo */
+    --muted:#6B7280;
+    --hair:1px;
+    --radius:2px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Inter Tight',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1360px;margin:0 auto;padding:0 40px}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted)}
+  h2.display{font-family:'Instrument Serif',serif;font-weight:400;font-size:58px;line-height:1.04;letter-spacing:-0.02em;margin:12px 0 0}
+  h2.display em{color:var(--blue);font-style:italic}
+
+  /* ---------- TOP BAR ---------- */
+  .topbar{background:var(--blue-ink);color:#E9EEF9;font-size:12px;letter-spacing:0.04em}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:38px}
+  .topbar .left{display:flex;gap:22px;align-items:center}
+  .topbar .left .dot{width:6px;height:6px;border-radius:50%;background:var(--orange);display:inline-block;margin-right:8px;box-shadow:0 0 0 3px rgba(232,100,30,.22)}
+  .topbar .right{display:flex;gap:22px;align-items:center;opacity:.9}
+
+  /* ---------- NAV ---------- */
+  nav.primary{border-bottom:var(--hair) solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:40}
+  nav.primary .wrap{display:flex;align-items:center;justify-content:space-between;height:92px}
+  .logo img{height:46px;width:auto;display:block}
+  .navlinks{display:flex;gap:34px;align-items:center}
+  .navlinks a{font-size:14px;font-weight:500;color:var(--ink);padding:6px 0}
+  .navlinks a.first{color:var(--orange);font-weight:600}
+  .navlinks a.first::before{content:"";width:6px;height:6px;background:var(--orange);border-radius:50%;display:inline-block;margin-right:8px;vertical-align:middle;animation:pulse 2.2s infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.7)}}
+  .navlinks a:hover{color:var(--blue)}
+  .nav-cta{background:var(--orange);color:#fff;padding:12px 20px;font-weight:600;font-size:13px;letter-spacing:0.02em;box-shadow:0 1px 0 #B84A10 inset, 0 8px 16px -8px rgba(232,100,30,.5)}
+  .nav-cta:hover{background:var(--orange-deep)}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;padding:80px 0 70px;background:
+    radial-gradient(1200px 400px at 85% -10%, rgba(232,100,30,.06), transparent 60%),
+    radial-gradient(900px 380px at 0% 100%, rgba(37,99,201,.05), transparent 60%),
+    var(--paper);overflow:hidden}
+  .hero .wrap{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;z-index:1}
+  .hero-left .kicker{display:flex;align-items:center;gap:10px;margin-bottom:24px}
+  .hero-left .kicker .line{height:1px;width:52px;background:var(--ink);opacity:.3}
+  .hero h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(46px,5.4vw,78px);line-height:1.02;letter-spacing:-0.025em;margin:0 0 24px;color:var(--ink)}
+  .hero h1 .worry{font-style:italic;color:var(--blue);position:relative;white-space:nowrap}
+  .hero h1 .worry::after{content:"";position:absolute;left:-2px;right:-2px;top:58%;height:14px;background:var(--orange);opacity:.2;z-index:-1;transform:skew(-4deg)}
+  .hero h1 .five{color:var(--orange);font-style:italic}
+  .hero h1 .way{font-style:italic}
+  .hero-lede{font-size:17px;line-height:1.55;color:var(--ink-soft);max-width:500px;margin:0 0 28px}
+
+  /* Contact form card (replaces "book a chat" CTA) */
+  .hero-form{background:#fff;border:1px solid var(--rule);padding:22px 22px 20px;max-width:500px;box-shadow:0 30px 60px -30px rgba(19,43,94,.18);position:relative}
+  .hero-form::before{content:"";position:absolute;top:-1px;left:-1px;right:-1px;height:4px;background:linear-gradient(90deg,var(--orange) 0 35%,var(--blue) 35% 100%)}
+  .hero-form h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:24px;margin:4px 0 4px;letter-spacing:-0.01em}
+  .hero-form p.sm{font-size:13px;color:var(--ink-soft);margin:0 0 16px;line-height:1.5}
+  .hero-form p.sm strong{color:var(--orange-deep)}
+  .hf-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+  .hf-field{position:relative}
+  .hf-field label{position:absolute;top:-7px;left:10px;background:#fff;padding:0 6px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
+  .hf-field input{width:100%;border:1px solid var(--rule);background:#fff;padding:12px 12px;font:inherit;font-size:14px;color:var(--ink);outline:none;transition:border .15s}
+  .hf-field input:focus{border-color:var(--blue)}
+  .hf-submit{width:100%;background:var(--orange);color:#fff;border:none;padding:14px;font:inherit;font-weight:600;font-size:14px;cursor:pointer;margin-top:6px;letter-spacing:0.02em;box-shadow:0 1px 0 #B84A10 inset}
+  .hf-submit:hover{background:var(--orange-deep)}
+  .hf-foot{display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:11px;color:var(--muted);letter-spacing:0.02em}
+  .hf-foot span{display:inline-flex;gap:6px;align-items:center}
+
+  /* Kodak scatter */
+  .scatter{position:relative;height:600px}
+  .photo{position:absolute;background:#fdfcf7;padding:10px 10px 54px;box-shadow:0 18px 30px -12px rgba(20,10,0,.35),0 6px 10px -6px rgba(20,10,0,.25);transition:transform .4s cubic-bezier(.2,.8,.2,1);will-change:transform}
+  .photo .name{position:absolute;left:0;right:0;bottom:12px;text-align:center;font-family:'Caveat',cursive;font-weight:600;font-size:22px;color:#1a2840;letter-spacing:0.01em;transform:rotate(-1.2deg)}
+  .photo .tape{position:absolute;top:-10px;left:50%;transform:translateX(-50%) rotate(-3deg);width:68px;height:18px;background:rgba(232,200,110,.55);box-shadow:0 1px 2px rgba(0,0,0,.08);mix-blend-mode:multiply}
+  .photo img{width:100%;height:100%;object-fit:cover;filter:sepia(.14) saturate(.9) contrast(.96) brightness(1.02)}
+  .photo .imgwrap{width:100%;aspect-ratio:1/1;background:#efe8d8;overflow:hidden}
+  .photo:hover{transform:translate(var(--tx,0),var(--ty,0)) rotate(var(--rz,0)) scale(1.05) !important;z-index:50}
+
+  /* ---------- PROOF BAR ---------- */
+  .proof{background:var(--blue-ink);color:#E9EEF9;border-top:1px solid rgba(255,255,255,.06)}
+  .proof .wrap{display:grid;grid-template-columns:repeat(5,1fr);padding:26px 40px}
+  .proof .cell{display:flex;align-items:center;gap:14px;padding:8px 22px;border-right:1px solid rgba(255,255,255,.08)}
+  .proof .cell:last-child{border-right:none}
+  .proof .icon{width:42px;height:42px;flex:none;display:grid;place-items:center;background:rgba(232,100,30,.16);color:var(--orange);border:1px solid rgba(232,100,30,.3)}
+  .proof .txt .n{font-family:'Instrument Serif',serif;font-size:22px;line-height:1;color:#fff}
+  .proof .txt .n em{color:var(--orange);font-style:normal}
+  .proof .txt .l{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#B8C3D6;margin-top:6px}
+
+  /* ---------- WHY CHOOSE (StoryBrand) ---------- */
+  .why{padding:120px 0;background:var(--paper)}
+  .why .wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:80px;align-items:center}
+  .why h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:60px;line-height:1.04;letter-spacing:-0.02em;margin:18px 0 24px}
+  .why h2 em{color:var(--blue);font-style:italic}
+  .why-pain{font-size:18px;line-height:1.6;color:var(--ink-soft);max-width:540px;margin:0 0 28px}
+  .why-pain strong{color:var(--ink)}
+  .pain-list{list-style:none;margin:0 0 36px;padding:0;display:flex;flex-direction:column;gap:10px;max-width:520px}
+  .pain-list li{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--ink-soft);line-height:1.5}
+  .pain-list li::before{content:"";width:18px;height:18px;border-radius:50%;background:rgba(232,100,30,.14);color:var(--orange);display:grid;place-items:center;flex:none;margin-top:3px;background-image:radial-gradient(var(--orange) 28%,transparent 30%)}
+  .plan-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:560px;margin-bottom:36px}
+  .plan-step{background:#fff;border:1px solid var(--rule);padding:18px 16px 20px;position:relative}
+  .plan-step .n{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;color:var(--orange)}
+  .plan-step .t{font-family:'Instrument Serif',serif;font-size:20px;margin:8px 0 4px;color:var(--ink);letter-spacing:-0.01em}
+  .plan-step .d{font-size:12.5px;color:var(--ink-soft);line-height:1.45}
+  .why-ctas{display:flex;gap:14px;align-items:center}
+  .btn-primary{background:var(--blue);color:#fff;padding:15px 24px;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:10px;box-shadow:0 1px 0 var(--blue-deep) inset,0 14px 28px -12px rgba(37,99,201,.45)}
+  .btn-primary:hover{background:var(--blue-deep)}
+  .btn-ghost{padding:15px 22px;font-weight:600;font-size:14px;border:1px solid var(--ink);color:var(--ink);display:inline-flex;align-items:center;gap:10px}
+
+  .why-img{position:relative;aspect-ratio:4/5;background:linear-gradient(160deg,#F4EFE4 0%, #E9E3D2 100%);overflow:visible}
+  .why-img::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 20%,rgba(232,100,30,.14),transparent 55%);z-index:1}
+  .why-img img{width:100%;height:100%;object-fit:cover;object-position:center top;position:relative;z-index:2}
+  .why-img .sig{position:absolute;left:20px;top:22px;z-index:3;font-family:'Caveat',cursive;font-size:26px;color:#fff;background:var(--blue);padding:4px 14px 6px;letter-spacing:0.01em;transform:rotate(-1.5deg)}
+  .why-img .label{position:absolute;left:20px;bottom:20px;z-index:3;background:rgba(252,250,245,.96);padding:14px 18px;border-left:3px solid var(--orange);max-width:70%}
+  .why-img .label .n{font-family:'Instrument Serif',serif;font-size:18px;color:var(--ink);line-height:1.25}
+  .why-img .label .r{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+  /* ---------- BELINDA — WHAT HAPPENS NEXT ---------- */
+  .next{background:var(--blue-soft);padding:120px 0;position:relative;overflow:hidden}
+  .next::before{content:"";position:absolute;right:-200px;top:-200px;width:500px;height:500px;background:radial-gradient(circle,rgba(232,100,30,.07),transparent 60%);pointer-events:none}
+  .next .wrap{display:grid;grid-template-columns:0.9fr 1.1fr;gap:80px;align-items:center;position:relative}
+  .next-img{position:relative;aspect-ratio:3/4;background:#fff;overflow:visible;border:1px solid var(--rule)}
+  .next-img::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(37,99,201,.06),transparent 40%)}
+  .next-img img{width:100%;height:100%;object-fit:cover;object-position:center top;position:relative;z-index:1}
+  .next-img .badge{position:absolute;left:20px;bottom:20px;z-index:2;background:#fff;padding:14px 18px;border-left:3px solid var(--blue);box-shadow:0 10px 20px -10px rgba(19,43,94,.25)}
+  .next-img .badge .nm{font-family:'Instrument Serif',serif;font-size:22px;color:var(--ink)}
+  .next-img .badge .rl{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);margin-top:4px}
+  .next h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:56px;line-height:1.05;letter-spacing:-0.02em;margin:12px 0 20px}
+  .next h2 em{color:var(--orange);font-style:italic}
+  .next p.intro{font-size:17px;line-height:1.6;color:var(--ink-soft);max-width:540px;margin:0 0 36px}
+  .next-steps{list-style:none;margin:0;padding:0;counter-reset:s}
+  .next-steps li{display:grid;grid-template-columns:60px 1fr;gap:20px;align-items:flex-start;padding:22px 0;border-top:1px solid rgba(37,99,201,.15)}
+  .next-steps li:last-child{border-bottom:1px solid rgba(37,99,201,.15)}
+  .next-steps li::before{counter-increment:s;content:"0" counter(s);font-family:'Instrument Serif',serif;font-size:38px;color:var(--blue);line-height:1}
+  .next-steps .t{font-family:'Instrument Serif',serif;font-size:22px;color:var(--ink);line-height:1.2;margin-bottom:4px}
+  .next-steps .d{font-size:14px;color:var(--ink-soft);line-height:1.5}
+  .next .tick{display:inline-block;width:8px;height:8px;background:var(--orange);border-radius:50%;margin-right:6px;vertical-align:middle}
+
+  /* ---------- SERVICES ---------- */
+  .services{background:var(--blue-ink);color:#E9EEF9;padding:110px 0;position:relative}
+  .services .head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;gap:40px}
+  .services h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:58px;line-height:1.04;letter-spacing:-0.02em;margin:12px 0 0;color:#fff;max-width:700px}
+  .services h2 em{color:var(--orange);font-style:italic}
+  .services .head p{max-width:360px;color:#B8C3D6;font-size:15px;line-height:1.55;margin:0}
+  .svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .svc{position:relative;overflow:hidden;background:#0b2048;min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;cursor:pointer;transition:transform .35s}
+  .svc:hover{transform:translateY(-4px)}
+  .svc .bg{position:absolute;inset:0;z-index:0}
+  .svc .bg::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,27,59,.1) 0%,rgba(11,27,59,.55) 55%,rgba(11,27,59,.95) 100%);z-index:1}
+  .svc .bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(.25) contrast(1.05) brightness(.88)}
+  .svc .content{position:relative;z-index:2}
+  .svc .top{display:flex;justify-content:space-between;align-items:center;position:absolute;top:20px;left:20px;right:20px;z-index:2}
+  .svc .num{font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,.7);letter-spacing:0.14em}
+  .svc .pill{background:rgba(232,100,30,.9);color:#fff;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;padding:4px 8px}
+  .svc h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:28px;line-height:1.08;margin:0 0 6px;color:#fff;letter-spacing:-0.01em}
+  .svc .d{font-size:13px;color:#c6d0e4;line-height:1.45;margin-bottom:14px}
+  .svc .arrow{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:#fff}
+  .svc:hover .arrow{color:var(--orange)}
+
+  /* ---------- REVIEWS ---------- */
+  .reviews{background:var(--paper-2);padding:100px 0 120px;overflow:hidden}
+  .reviews .head{display:flex;justify-content:space-between;align-items:flex-end;margin:0 auto 48px;padding:0 40px;max-width:1360px;gap:40px}
+  .reviews h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:58px;line-height:1.04;margin:10px 0 0;letter-spacing:-0.02em}
+  .reviews h2 em{color:var(--orange);font-style:italic}
+  .reviews .gmeta{display:flex;gap:20px;align-items:center;font-size:13px;color:var(--ink-soft)}
+  .reviews .gmeta .stars{color:var(--orange);letter-spacing:2px;font-size:15px}
+  .marquee{position:relative;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+  .marquee .track{display:flex;gap:24px;width:max-content;animation:slide 60s linear infinite}
+  .marquee.reverse .track{animation:slide-r 65s linear infinite}
+  .marquee + .marquee{margin-top:24px}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @keyframes slide-r{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+  .card{flex:none;width:420px;background:#fff;padding:26px 28px;border:1px solid var(--rule);display:flex;flex-direction:column;gap:14px}
+  .card .top{display:flex;justify-content:space-between;align-items:center}
+  .card .who{display:flex;align-items:center;gap:12px}
+  .card .av{width:36px;height:36px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:600;font-size:13px}
+  .card .nm{font-weight:600;font-size:14px}
+  .card .dt{font-size:11px;color:var(--muted);letter-spacing:0.08em}
+  .card .stars{color:var(--orange);letter-spacing:2px}
+  .card blockquote{margin:0;font-size:15px;line-height:1.55;color:var(--ink-soft)}
+  .card .g{font-size:11px;color:var(--muted);letter-spacing:0.14em}
+
+  /* ---------- COMPARISON ---------- */
+  .compare{background:var(--paper);padding:120px 0}
+  .compare .head{text-align:center;max-width:720px;margin:0 auto 56px}
+  .compare h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:58px;line-height:1.04;letter-spacing:-0.02em;margin:12px 0 16px}
+  .compare h2 em{color:var(--orange);font-style:italic}
+  .compare .head p{font-size:16px;color:var(--ink-soft);line-height:1.6;margin:0}
+  .cmp-table{border:1px solid var(--rule);background:#fff;overflow:hidden}
+  .cmp-row{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;align-items:stretch}
+  .cmp-row + .cmp-row{border-top:1px solid var(--rule)}
+  .cmp-cell{padding:20px 24px;font-size:14px;color:var(--ink-soft);display:flex;align-items:center;gap:10px;border-right:1px solid var(--rule)}
+  .cmp-cell:last-child{border-right:none}
+  .cmp-head{background:var(--blue-ink);color:#fff}
+  .cmp-head .cmp-cell{color:#fff;font-weight:600;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;padding:22px 24px;border-right:1px solid rgba(255,255,255,.1)}
+  .cmp-head .cmp-cell.us{background:var(--orange);color:#fff}
+  .cmp-head .cmp-cell.us span{display:inline-flex;align-items:center;gap:8px}
+  .cmp-head .cmp-cell.us span::before{content:"★";font-size:14px}
+  .cmp-feat{font-weight:600;color:var(--ink);font-size:14px;text-transform:none;letter-spacing:0}
+  .cmp-cell.us{background:#fff8f2;color:var(--ink);font-weight:500}
+  .cmp-yes{color:#1E8A4E;font-size:18px}
+  .cmp-no{color:#C33;font-size:18px}
+  .cmp-part{color:#B88200;font-size:14px;font-style:italic}
+  .cmp-foot{margin-top:24px;text-align:center;font-size:13px;color:var(--muted)}
+
+  /* ---------- OFFICES ---------- */
+  .offices{background:var(--blue-soft);padding:120px 0;position:relative;overflow:hidden}
+  .offices .head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:flex-end;margin-bottom:60px}
+  .offices h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:58px;line-height:1.04;letter-spacing:-0.02em;margin:12px 0 0}
+  .offices h2 em{color:var(--blue);font-style:italic}
+  .offices .head p{font-size:16px;color:var(--ink-soft);line-height:1.6;margin:0;max-width:420px}
+  .offices .body{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
+  .map-wrap{position:relative;aspect-ratio:4/4;background:#fff;border:1px solid var(--rule);overflow:hidden}
+  .map-wrap svg{width:100%;height:100%;display:block}
+  .map-pin{position:absolute;transform:translate(-50%,-100%);z-index:3;pointer-events:none}
+  .map-pin .dot{width:14px;height:14px;background:var(--orange);border:3px solid #fff;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,.2);animation:ping 2.5s infinite}
+  .map-pin .dot::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:2px solid var(--orange);opacity:.4;animation:ping-ring 2.5s infinite}
+  @keyframes ping{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+  @keyframes ping-ring{0%{transform:scale(0.8);opacity:.6}100%{transform:scale(2);opacity:0}}
+  .map-pin .lbl{font-family:'Instrument Serif',serif;font-size:15px;color:var(--ink);background:#fff;padding:3px 8px;border:1px solid var(--rule);white-space:nowrap;position:absolute;bottom:22px;left:50%;transform:translateX(-50%);box-shadow:0 4px 8px -2px rgba(0,0,0,.08)}
+  .office-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .office{background:#fff;padding:18px 20px;border:1px solid var(--rule);transition:transform .2s,border-color .2s;cursor:pointer}
+  .office:hover{transform:translateY(-2px);border-color:var(--orange)}
+  .office .loc{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange)}
+  .office .n{font-family:'Instrument Serif',serif;font-size:24px;margin:4px 0 6px;color:var(--ink);letter-spacing:-0.01em}
+  .office .a{font-size:13px;color:var(--ink-soft);line-height:1.45}
+  .office .ph{font-size:13px;color:var(--blue);font-weight:600;margin-top:8px}
+
+  /* ---------- BLOG ---------- */
+  .blog{background:var(--paper);padding:120px 0}
+  .blog .head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;gap:40px}
+  .blog h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:58px;line-height:1.04;letter-spacing:-0.02em;margin:12px 0 0}
+  .blog h2 em{color:var(--blue);font-style:italic}
+  .blog .head .all{font-size:13px;font-weight:600;color:var(--ink);border-bottom:2px solid var(--orange);padding-bottom:4px}
+  .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+  .post{display:flex;flex-direction:column;gap:16px;cursor:pointer}
+  .post .thumb{aspect-ratio:3/2;overflow:hidden;background:var(--paper-2);position:relative}
+  .post .thumb .ph{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .5s}
+  .post:hover .thumb .ph{transform:scale(1.04)}
+  .post .cat{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange)}
+  .post .date{color:var(--muted)}
+  .post .meta{display:flex;gap:14px;align-items:center}
+  .post h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:26px;line-height:1.18;margin:0;letter-spacing:-0.01em;color:var(--ink)}
+  .post p{font-size:14px;color:var(--ink-soft);line-height:1.55;margin:0}
+  .post .rd{font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);font-weight:600;margin-top:4px}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink);color:#C7D2E4;padding:80px 0 40px}
+  footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:60px}
+  footer h4{font-family:'Instrument Serif',serif;font-weight:400;font-size:22px;color:#fff;margin:0 0 20px}
+  footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;font-size:14px}
+  footer ul a:hover{color:#fff}
+  footer .brand img{height:42px;filter:brightness(0) invert(1) opacity(0.95);margin-bottom:18px}
+  footer .brand p{font-size:14px;line-height:1.6;color:#8FA1BE;max-width:320px}
+  footer .bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:60px;padding-top:24px;display:flex;justify-content:space-between;font-size:12px;color:#7a8aa5}
+
+  /* ---------- TWEAKS PANEL ---------- */
+  #tweaks{position:fixed;right:20px;bottom:20px;width:280px;background:#fff;border:1px solid var(--rule);box-shadow:0 20px 40px -12px rgba(0,0,0,.2);padding:18px;z-index:100;display:none;font-size:13px}
+  #tweaks.open{display:block}
+  #tweaks h5{margin:0 0 12px;font-family:'Instrument Serif',serif;font-weight:400;font-size:18px}
+  #tweaks .row{display:flex;align-items:center;justify-content:space-between;margin:10px 0}
+  #tweaks .swatches{display:flex;gap:6px}
+  #tweaks .sw{width:24px;height:24px;border:2px solid #fff;outline:1px solid var(--rule);cursor:pointer;border-radius:50%}
+  #tweaks .sw.active{outline:2px solid var(--ink)}
+</style>
+</head>
+<body data-screen-label="Home">
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="left"><span><span class="dot"></span>Available 24/7 — call us anytime</span></div>
+      <div class="right">
+        <a href="#">Brisbane · Gold Coast · Sunshine Coast · Ipswich · Logan · North Lakes · Toowoomba · Hervey Bay</a>
+        <a href="tel:1300">☎ 1300 952 255</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="primary">
+    <div class="wrap">
+      <a href="#" class="logo" aria-label="Clarity Law"><img src="assets/logo.jpg" alt="Clarity Law"></a>
+      <div class="navlinks">
+        <a href="#" class="first">First Charge?</a>
+        <a href="#">Team</a>
+        <a href="#">Services</a>
+        <a href="#">Locations</a>
+        <a href="#">Tools</a>
+        <a href="#">Blog</a>
+        <a href="#" class="nav-cta">Get a fixed quote →</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" data-screen-label="Hero">
+    <div class="wrap">
+      <div class="hero-left">
+        <div class="kicker"><span class="line"></span><span class="eyebrow">Queensland Criminal Lawyers · Est. 2010</span></div>
+        <h1>
+          <span class="worry">Don't worry.</span><br/>
+          We've done this <span class="five">5,000+</span> times —<br/>
+          we know <span class="way">the way through.</span>
+        </h1>
+        <p class="hero-lede">
+          Eight specialist criminal lawyers. Seven offices across Queensland. Fixed prices
+          quoted before we start. A charge is frightening — the process isn't, once you've
+          walked it as many times as we have.
+        </p>
+
+        <!-- CONTACT FORM replacing book-a-chat CTA -->
+        <form class="hero-form" onsubmit="event.preventDefault();alert('Thanks — we will call you shortly.')">
+          <h3>We'll ring you back with advice and a fixed quote.</h3>
+          <p class="sm">Leave your details. A real lawyer — not a chatbot — will call <strong>within 30 minutes</strong> (business hours). No obligation. No cost.</p>
+          <div class="hf-row">
+            <div class="hf-field"><label>Name</label><input type="text" placeholder="Your name" required></div>
+            <div class="hf-field"><label>Phone</label><input type="tel" placeholder="04xx xxx xxx" required></div>
+          </div>
+          <div class="hf-field" style="margin-bottom:6px"><label>Email</label><input type="email" placeholder="you@example.com" required></div>
+          <button class="hf-submit" type="submit">Call me back →</button>
+          <div class="hf-foot">
+            <span>🔒 Confidential</span>
+            <span>⏱ Usually 20 min</span>
+            <span>✓ Free advice</span>
+          </div>
+        </form>
+      </div>
+
+      <!-- Kodak scatter -->
+      <div class="scatter" aria-hidden="true">
+        <div class="photo p1"><span class="tape"></span><div class="imgwrap"><img src="assets/lawyers/steven.jpg" alt=""></div><div class="name">Steven</div></div>
+        <div class="photo p2"><div class="imgwrap"><img src="assets/lawyers/belinda.jpg" alt=""></div><div class="name">Belinda</div></div>
+        <div class="photo p3"><span class="tape"></span><div class="imgwrap"><img src="assets/lawyers/jack.jpg" alt=""></div><div class="name">Jack</div></div>
+        <div class="photo p4"><div class="imgwrap"><img src="assets/lawyers/sarah-v2.png" alt=""></div><div class="name">Sarah</div></div>
+        <div class="photo p5"><span class="tape"></span><div class="imgwrap"><img src="assets/lawyers/will-v2.png" alt=""></div><div class="name">Will</div></div>
+        <div class="photo p6"><div class="imgwrap"><img src="assets/lawyers/ryan-v2.png" alt=""></div><div class="name">Ryan</div></div>
+        <div class="photo p7"><span class="tape"></span><div class="imgwrap"><img src="assets/lawyers/jacob.jpg" alt=""></div><div class="name">Jacob</div></div>
+        <div class="photo p8"><div class="imgwrap"><img src="assets/lawyers/russell.jpg" alt=""></div><div class="name">Russell</div></div>
+        <div class="photo p9"><div class="imgwrap"><img src="assets/lawyers/braden-v2.png" alt=""></div><div class="name">Braden</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF BAR -->
+  <section class="proof">
+    <div class="wrap">
+      <div class="cell">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.7 7L12 17.8 5.7 21.2l1.7-7L2 9.5l7.1-.6L12 2z"/></svg></div>
+        <div class="txt"><div class="n"><em>4.9★</em> on Google</div><div class="l">1,200+ reviews</div></div>
+      </div>
+      <div class="cell">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/></svg></div>
+        <div class="txt"><div class="n">Member <em>QLS</em></div><div class="l">Queensland Law Society</div></div>
+      </div>
+      <div class="cell">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <div class="txt"><div class="n"><em>8</em> offices in QLD</div><div class="l">Across Queensland</div></div>
+      </div>
+      <div class="cell">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="10" r="2.6"/><path d="M3 20c1-3 3.5-4.5 6-4.5s5 1.5 6 4.5M14 20c.6-2 2.2-3.2 4-3.2s3.3 1 4 3"/></svg></div>
+        <div class="txt"><div class="n"><em>8</em> experienced lawyers</div><div class="l">Criminal Experts</div></div>
+      </div>
+      <div class="cell">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 10h18M7 15h4"/></svg></div>
+        <div class="txt"><div class="n"><em>Fixed</em> prices</div><div class="l">Quoted upfront</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE — StoryBrand framing -->
+  <section class="why" data-screen-label="Why Clarity">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Why Clarity</span>
+        <h2>A charge doesn't make you a criminal.<br/>But the wrong lawyer <em>can cost you everything.</em></h2>
+        <p class="why-pain">
+          Right now you're probably not sleeping. You're <strong>googling sentences at 2am.</strong>
+          Wondering if you'll lose your job, your licence, the families future. Wondering what
+          to tell your partner. Wondering if you need a lawyer at all — and if you do, how
+          you're supposed to pick one when every website says the same thing.
+        </p>
+        <ul class="pain-list">
+          <li>You don't know what you don't know — and the stakes are your freedom.</li>
+          <li>Every hour of silence from a lawyer is an hour your worry gets louder.</li>
+          <li>"Call for a quote" usually means an hour on the phone, no price, more stress.</li>
+        </ul>
+
+        <div class="plan-row">
+          <div class="plan-step"><div class="n">STEP 01</div><div class="t">You call</div><div class="d">One 20-minute call. No meter running.</div></div>
+          <div class="plan-step"><div class="n">STEP 02</div><div class="t">We plan</div><div class="d">A clear strategy and fixed quote in writing.</div></div>
+          <div class="plan-step"><div class="n">STEP 03</div><div class="t">You breathe</div><div class="d">We handle the court. You handle your life.</div></div>
+        </div>
+
+        <div class="why-ctas">
+          <a href="#" class="btn-primary">Talk to a lawyer today →</a>
+          <a href="#" class="btn-ghost">What happens in court ↗</a>
+        </div>
+      </div>
+
+      <div class="why-img">
+        <div style="position:absolute;left:-6px;top:-38px;z-index:3;font-family:'Caveat',cursive;font-size:28px;color:#fff;background:var(--blue);padding:6px 20px 8px;letter-spacing:0.01em;transform:rotate(-1.5deg);box-shadow:3px 3px 10px rgba(0,0,0,.18);white-space:nowrap">Steven &mdash; Founder</div>
+        <img src="assets/lawyers/steven.png" alt="Steven Brough, Director">
+        <div class="label">
+          <div class="n">"One mistake shouldn't define your future. We'll guide you through it and get the best outcome possible."</div>
+          <div class="r">Steven Brough · 25+ yrs Experience</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BELINDA — What happens when you contact us -->
+  <section class="next" data-screen-label="What Happens Next">
+    <div class="wrap">
+      <div class="next-img">
+        <div style="position:absolute;left:-6px;top:-38px;z-index:3;font-family:'Caveat',cursive;font-size:28px;color:#fff;background:var(--blue);padding:6px 20px 8px;letter-spacing:0.01em;transform:rotate(-1.5deg);box-shadow:3px 3px 10px rgba(0,0,0,.18);white-space:nowrap">Belinda &mdash; Client Services Manager</div>
+        <img src="assets/lawyers/belinda-full.png" alt="Belinda, Client Services Manager" style="position:relative;z-index:1">
+        <div class="badge">
+          <div class="belinda-quote" style="font-family:'Instrument Serif',serif;font-style:italic;font-size:14px;color:var(--ink-soft);margin-top:8px;line-height:1.4;border-top:1px solid var(--rule);padding-top:8px;max-width:220px">"I'm here to make a stressful moment a little easier — starting with your very first call."<br/><span style="font-family:'JetBrains Mono',monospace;font-style:normal;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);display:block;margin-top:6px">24 Years Experience</span></div>
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow">What happens when you contact us</span>
+        <h2>No scripts. No sales pitch. <em>Just a human, a plan, and a price.</em></h2>
+        <p class="intro">
+          I'm Belinda — I answer the phone. The moment you reach out, here's exactly what
+          happens next. No hidden steps, no bait-and-switch, no waiting days to hear back.
+        </p>
+        <ol class="next-steps">
+          <li><div><div class="t">Your call reaches me — a real person</div><div class="d">Not a call centre. Not a chatbot. Not AI. A real person with 25 years experience.</div></div></li>
+          <li><div><div class="t">I'll talk you through your charge and what comes next</div><div class="d">I'll listen carefully, explain what the charge means in plain English, walk you through the court process, and give you a clear, fixed-price quote — no obligation, no pressure.</div></div></li>
+          <li><div><div class="t">You get a fixed price — in writing, before we start</div><div class="d">No hourly surprises. No "it depends". One quote covering the whole matter, emailed to you the same day.</div></div></li>
+          <li><div><div class="t">You decide — on your own time</div><div class="d">We never pressure. Take the quote home, sleep on it, compare it. We'll be here when you're ready.</div></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" data-screen-label="Services">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow" style="color:#B8C3D6">What we handle</span>
+          <h2>If it's a criminal charge in Queensland, <em>we've run it.</em></h2>
+        </div>
+        <p>Every matter we take is criminal or traffic — that's the only thing we do. Pick the closest match below, or call us and we'll point you in the right direction.</p>
+      </div>
+
+      <div class="svc-grid" id="svc-grid"></div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews" data-screen-label="Reviews">
+    <div class="head">
+      <div>
+        <span class="eyebrow">From our clients</span>
+        <h2>Words from the <em>other side of it.</em></h2>
+      </div>
+      <div class="gmeta"><div><span class="stars">★★★★★</span> &nbsp;<strong>4.9</strong> · 1,248 Google reviews</div></div>
+    </div>
+    <div class="marquee"><div class="track" id="track1"></div></div>
+    <div class="marquee reverse"><div class="track" id="track2"></div></div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section class="compare" data-screen-label="Compare">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Clarity vs. the rest</span>
+        <h2>Why clients keep choosing us <em>over general-practice firms.</em></h2>
+        <p>Most firms dabble in criminal law between wills and divorces. We don't. It's the only thing we do — and it's the difference you feel the moment you walk into court.</p>
+      </div>
+
+      <div class="cmp-table">
+        <div class="cmp-row cmp-head">
+          <div class="cmp-cell cmp-feat">What matters</div>
+          <div class="cmp-cell us"><span>Clarity Law</span></div>
+          <div class="cmp-cell">General-practice firm</div>
+          <div class="cmp-cell">Big-city CBD firm</div>
+        </div>
+        <div class="cmp-row">
+          <div class="cmp-cell cmp-feat">Criminal law only — 100% focus</div>
+          <div class="cmp-cell us"><span class="cmp-yes">✓</span> Always</div>
+          <div class="cmp-cell"><span class="cmp-no">✗</span> Dabbles between matters</div>
+          <div class="cmp-cell"><span class="cmp-part">Sometimes</span></div>
+        </div>
+        <div class="cmp-row">
+          <div class="cmp-cell cmp-feat">Fixed fees quoted upfront</div>
+          <div class="cmp-cell us"><span class="cmp-yes">✓</span> In writing, before we start</div>
+          <div class="cmp-cell"><span class="cmp-part">"We'll see"</span></div>
+          <div class="cmp-cell"><span class="cmp-no">✗</span> Hourly, 6-min units</div>
+        </div>
+        <div class="cmp-row">
+          <div class="cmp-cell cmp-feat">Local lawyer in your local court</div>
+          <div class="cmp-cell us"><span class="cmp-yes">✓</span> 8 offices across QLD</div>
+          <div class="cmp-cell"><span class="cmp-part">One town only</span></div>
+          <div class="cmp-cell"><span class="cmp-no">✗</span> Flies out from Brisbane</div>
+        </div>
+        <div class="cmp-row">
+          <div class="cmp-cell cmp-feat">Same-day callback</div>
+          <div class="cmp-cell us"><span class="cmp-yes">✓</span> Within 30 min (business hours)</div>
+          <div class="cmp-cell"><span class="cmp-part">Next business day</span></div>
+          <div class="cmp-cell"><span class="cmp-part">"Leave a message"</span></div>
+        </div>
+        <div class="cmp-row">
+          <div class="cmp-cell cmp-feat">5,000+ criminal matters run</div>
+          <div class="cmp-cell us"><span class="cmp-yes">✓</span> Since 2010</div>
+          <div class="cmp-cell"><span class="cmp-no">✗</span> Rarely</div>
+          <div class="cmp-cell"><span class="cmp-part">Partners only</span></div>
+        </div>
+        <div class="cmp-row">
+          <div class="cmp-cell cmp-feat">Plain-English advice</div>
+          <div class="cmp-cell us"><span class="cmp-yes">✓</span> Always</div>
+          <div class="cmp-cell"><span class="cmp-part">Depends on lawyer</span></div>
+          <div class="cmp-cell"><span class="cmp-no">✗</span> Billable legalese</div>
+        </div>
+        <div class="cmp-row">
+          <div class="cmp-cell cmp-feat">After-hours support</div>
+          <div class="cmp-cell us"><span class="cmp-yes">✓</span> 24/7 for existing clients</div>
+          <div class="cmp-cell"><span class="cmp-no">✗</span> 9–5 only</div>
+          <div class="cmp-cell"><span class="cmp-part">Duty lawyer referral</span></div>
+        </div>
+      </div>
+      <div class="cmp-foot">Comparison based on publicly-stated service levels at competitor firms. Updated 2026.</div>
+    </div>
+  </section>
+
+  <!-- OFFICES -->
+  <section class="offices" data-screen-label="Offices">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Where to find us</span>
+          <h2>Eight offices. Eight court networks. <em>One local lawyer for you.</em></h2>
+        </div>
+        <p>We appear in courts all over Queensland — but having a lawyer who knows your magistrate by name isn't a luxury, it's leverage.</p>
+      </div>
+
+      <div class="body">
+        <!-- SE Queensland map -->
+        <div class="map-wrap" id="map-wrap" style="aspect-ratio:1/1;background:#CFE4F1;overflow:hidden;position:relative">
+          <div id="qld-map" style="width:100%;height:100%;position:absolute;inset:0"></div>
+          <style>
+            #qld-map .leaflet-tile-pane{filter:saturate(1.05) brightness(1.02)}
+          </style>
+          <div style="position:absolute;left:14px;bottom:14px;z-index:500;background:rgba(19,43,94,0.92);color:#fff;padding:8px 14px;font-family:'Inter Tight',sans-serif;font-size:10px;letter-spacing:0.18em;text-transform:uppercase">South East Queensland</div>
+        </div>
+
+        <div class="office-list">
+          <div class="office"><div class="loc">QLD / 01</div><div class="n">Brisbane</div><div class="a">Level 1, 16 McDougall St<br/>Milton QLD 4064</div><div class="ph">07 3067 7017</div></div>
+          <div class="office"><div class="loc">QLD / 02</div><div class="n">Gold Coast</div><div class="a">Level 15, 2 Corporate Court<br/>Bundall QLD 4217</div><div class="ph">07 5613 2683</div></div>
+          <div class="office"><div class="loc">QLD / 03</div><div class="n">Sunshine Coast</div><div class="a">Suite 8, 84 Wises Road<br/>Maroochydore QLD 4558</div><div class="ph">1300 952 255</div></div>
+          <div class="office"><div class="loc">QLD / 04</div><div class="n">North Brisbane</div><div class="a">3/22-24 Strathwyn Street<br/>Brendale QLD 4500</div><div class="ph">07 3485 0184</div></div>
+          <div class="office"><div class="loc">QLD / 05</div><div class="n">Ipswich</div><div class="a">16 East Street<br/>Ipswich QLD 4305</div><div class="ph">07 3485 0147</div></div>
+          <div class="office"><div class="loc">QLD / 06</div><div class="n">Logan</div><div class="a">Level 2, 3972 Pacific Hwy<br/>Loganholme QLD 4129</div><div class="ph">07 3668 0683</div></div>
+          <div class="office"><div class="loc">QLD / 07</div><div class="n">Toowoomba</div><div class="a">123 Margaret Street<br/>Toowoomba QLD 4350</div><div class="ph">1300 952 255</div></div>
+          <div class="office"><div class="loc">QLD / 08</div><div class="n">Hervey Bay</div><div class="a">Unit 3, 6 Liuzzi St<br/>Hervey Bay QLD 4655</div><div class="ph">07 3485 0184</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section class="blog" data-screen-label="Blog">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Latest from the team</span>
+          <h2>Things worth <em>knowing before court.</em></h2>
+        </div>
+        <a href="#" class="all">View all posts →</a>
+      </div>
+      <div class="blog-grid">
+        <article class="post">
+          <div class="thumb"><div class="ph" style="background-image:linear-gradient(135deg,#1E3A6E,#2563C9)"></div></div>
+          <div class="meta"><span class="cat">Drink Driving</span><span class="date">15 Apr 2026</span></div>
+          <h3>What a mid-range drink driving charge actually costs you in Queensland in 2026</h3>
+          <p>Fines, licence periods, interlocks and insurance. Here's the full picture, with real numbers.</p>
+          <span class="rd">Read — 6 min</span>
+        </article>
+        <article class="post">
+          <div class="thumb"><div class="ph" style="background-image:linear-gradient(135deg,#C44E0F,#E8641E)"></div></div>
+          <div class="meta"><span class="cat">First Charge?</span><span class="date">08 Apr 2026</span></div>
+          <h3>Just charged? Read this before you say another word to anyone</h3>
+          <p>The five conversations that almost always make things worse — and the one phone call that helps.</p>
+          <span class="rd">Read — 4 min</span>
+        </article>
+        <article class="post">
+          <div class="thumb"><div class="ph" style="background-image:linear-gradient(135deg,#132B5E,#2563C9)"></div></div>
+          <div class="meta"><span class="cat">Court Process</span><span class="date">02 Apr 2026</span></div>
+          <h3>Your first mention: what actually happens when you walk into Magistrates Court</h3>
+          <p>Where to stand, what to wear, what the magistrate will ask — and when not to answer.</p>
+          <span class="rd">Read — 7 min</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap" style="grid-template-columns:1.6fr 1fr 1fr 1fr 1fr">
+      <div class="brand">
+        <img src="assets/logo.jpg" alt="Clarity Law">
+        <p>Queensland's expert criminal law firm. Eight offices, eight lawyers, one job: getting you the best outcome possible at a fixed price.</p>
+        <div style="margin-top:20px;font-size:13px;color:#8FA1BE">
+          <div style="color:#fff;font-weight:600;margin-bottom:6px">☎ 1300 952 255</div>
+          <div>Available 7 days · 7am – 7pm</div>
+        </div>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Drink Driving &amp; Traffic</a></li>
+          <li><a href="#">Drug Offences</a></li>
+          <li><a href="#">Assault &amp; Violence</a></li>
+          <li><a href="#">Domestic Violence</a></li>
+          <li><a href="#">Fraud &amp; Dishonesty</a></li>
+          <li><a href="#">Property Offences</a></li>
+          <li><a href="#">Sexual Offences</a></li>
+          <li><a href="#">Bail Applications</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Offices</h4>
+        <ul>
+          <li><a href="#">Brisbane (Milton)</a></li>
+          <li><a href="#">Gold Coast (Bundall)</a></li>
+          <li><a href="#">Sunshine Coast</a></li>
+          <li><a href="#">North Brisbane</a></li>
+          <li><a href="#">Ipswich</a></li>
+          <li><a href="#">Logan</a></li>
+          <li><a href="#">Toowoomba</a></li>
+          <li><a href="#">Hervey Bay</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Tools</a></li>
+          <li><a href="#">First Charge? Guide</a></li>
+          <li><a href="#">Fixed-fee Calculator</a></li>
+          <li><a href="#">Sentencing Guide</a></li>
+          <li><a href="#">Court Locations</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Urgent?</h4>
+        <ul>
+          <li><a href="tel:1300952255">Call 1300 952 255</a></li>
+          <li><a href="#">Email us</a></li>
+          <li><a href="#">Online enquiry</a></li>
+          <li><a href="#">Find my office</a></li>
+        </ul>
+        <div style="margin-top:24px;padding:14px;background:rgba(232,100,30,.15);border-left:3px solid var(--orange)">
+          <div style="font-size:12px;color:#B8C3D6;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px">Member</div>
+          <div style="font-size:14px;color:#fff;font-weight:600">Queensland Law Society</div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap bottom">
+      <span>© 2026 Clarity Law Pty Ltd · ABN 00 000 000 000</span>
+      <span>Privacy Policy · Terms of Use · QLS member firm</span>
+    </div>
+  </footer>
+
+  <!-- Tweaks panel -->
+  <div id="tweaks" aria-hidden="true">
+    <h5>Tweaks</h5>
+    <div class="row">
+      <span>Accent (orange)</span>
+      <div class="swatches" id="sw-accent">
+        <button class="sw" data-c="#E8641E" style="background:#E8641E"></button>
+        <button class="sw" data-c="#D9480F" style="background:#D9480F"></button>
+        <button class="sw" data-c="#F08A3E" style="background:#F08A3E"></button>
+      </div>
+    </div>
+    <div class="row">
+      <span>Brand blue</span>
+      <div class="swatches" id="sw-blue">
+        <button class="sw" data-c="#2563C9" style="background:#2563C9"></button>
+        <button class="sw" data-c="#1E4FC6" style="background:#1E4FC6"></button>
+        <button class="sw" data-c="#3B7DD8" style="background:#3B7DD8"></button>
+      </div>
+    </div>
+    <div class="row">
+      <span>Hero layout</span>
+      <select id="sel-hero">
+        <option value="scatter">Kodak scatter</option>
+        <option value="neat">Neater grid</option>
+        <option value="fan">Fan spread</option>
+      </select>
+    </div>
+    <div class="row">
+      <span>Photo sepia</span>
+      <input type="range" id="sel-sepia" min="0" max="60" value="14" />
+    </div>
+  </div>
+
+<script>
+  // TWEAK DEFAULTS
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "accent":"#E8641E",
+    "blue":"#2563C9",
+    "heroLayout":"scatter",
+    "sepia":14
+  }/*EDITMODE-END*/;
+  const state = Object.assign({}, TWEAK_DEFAULTS);
+
+  function applyState(){
+    document.documentElement.style.setProperty('--orange', state.accent);
+    document.documentElement.style.setProperty('--blue', state.blue);
+    document.querySelectorAll('.photo img').forEach(i=>{
+      i.style.filter = `sepia(${state.sepia/100}) saturate(.9) contrast(.96) brightness(1.02)`;
+    });
+    applyHeroLayout(state.heroLayout);
+  }
+
+  function applyHeroLayout(kind){
+    const photos = document.querySelectorAll('.scatter .photo');
+    if(kind==='scatter'){
+      const presets=[
+        {top:10,left:10,w:220,rz:-9,z:5},
+        {top:-10,left:200,w:210,rz:6,z:7},
+        {top:60,left:340,w:200,rz:-3,z:4},
+        {top:240,left:0,w:210,rz:12,z:6},
+        {top:220,left:180,w:230,rz:-6,z:9},
+        {top:250,left:380,w:190,rz:3,z:5},
+        {top:400,left:70,w:190,rz:-14,z:8},
+        {top:420,left:260,w:200,rz:8,z:10},
+        {top:40,left:500,w:170,rz:-2,z:3}
+      ];
+      photos.forEach((p,i)=>{
+        const v=presets[i]; if(!v) return;
+        p.style.top=v.top+'px'; p.style.left=v.left+'px'; p.style.width=v.w+'px';
+        p.style.transform=`rotate(${v.rz}deg)`; p.style.zIndex=v.z;
+        p.style.setProperty('--rz', v.rz+'deg');
+      });
+    } else if(kind==='neat'){
+      photos.forEach((p,i)=>{
+        const col=i%3, row=Math.floor(i/3);
+        p.style.left=(col*210+10)+'px';
+        p.style.top=(row*210+10)+'px';
+        p.style.width='190px';
+        p.style.transform=`rotate(${(i%2?1:-1)*2}deg)`;
+        p.style.zIndex=i;
+      });
+    } else if(kind==='fan'){
+      photos.forEach((p,i)=>{
+        const angle=(i-4)*6;
+        const r=290; const rad=angle*Math.PI/180;
+        p.style.left=(300+Math.sin(rad)*r-95)+'px';
+        p.style.top=(300-Math.cos(rad)*r+140)+'px';
+        p.style.width='190px';
+        p.style.transform=`rotate(${angle}deg)`;
+        p.style.zIndex=i+1;
+      });
+    }
+  }
+
+  // SERVICES with photos — using lawyer images + colored overlays as placeholders
+  const services = [
+    {t:"Drink Driving & Traffic", d:"Licence-saving outcomes, interlocks, work licences.", img:"assets/svc/drink-driving.png"},
+    {t:"Drug Offences", d:"Possession, supply, trafficking — from mistake to major.", img:"assets/svc/drugs.png"},
+    {t:"Assault & Violence", d:"Common assault, grievous bodily harm, serious violence.", img:"assets/svc/assault.png"},
+    {t:"Domestic Violence", d:"DV orders, breaches, protection orders, court representation.", img:"assets/svc/dv.png"},
+    {t:"Fraud & Dishonesty", d:"Stealing, fraud, serious dishonesty offences.", img:"assets/svc/fraud.png"},
+    {t:"Property Offences", d:"Burglary, unlawful entry, wilful damage.", img:"assets/svc/property.png"},
+    {t:"Sexual Offences", d:"Sensitive matters handled with absolute discretion.", img:"assets/svc/sexual.png"},
+    {t:"Bail Applications", d:"Urgent bail, watchhouse, Supreme Court bail.", img:"assets/svc/bail.png"},
+  ];
+  document.getElementById('svc-grid').innerHTML = services.map(s=>`
+    <a class="svc" href="#">
+      <div class="bg"><img src="${s.img}" alt=""></div>
+      <div class="top">${s.pill?`<span class="pill">${s.pill}</span>`:''}</div>
+      <div class="content">
+        <h3>${s.t}</h3>
+        <div class="d">${s.d}</div>
+        <span class="arrow">Learn more →</span>
+      </div>
+    </a>`).join('');
+
+  // REVIEWS
+  const row1 = [
+    {nm:"Emma R.", dt:"2 weeks ago", t:"Genuinely kind people on what was the worst week of my life. Steven explained everything twice because I needed it twice. Charge downgraded, no conviction recorded."},
+    {nm:"Marcus T.", dt:"1 month ago", t:"Fixed fee was exactly what they quoted. No surprise bill at the end. Matter resolved in a single appearance — I couldn't believe how straightforward they made it."},
+    {nm:"Jayden P.", dt:"3 weeks ago", t:"I rang half a dozen firms. Clarity was the only one that actually called me back the same day. That alone told me everything I needed to know."},
+    {nm:"Hannah W.", dt:"5 days ago", t:"Belinda was calm, straight with me, and treated my son with respect throughout. The outcome was so much better than I expected."},
+    {nm:"David K.", dt:"2 months ago", t:"Hoped to never need a criminal lawyer. Glad I found these ones when I did. Professional, local, and absolutely zero lecture about my situation."},
+    {nm:"Sam O.", dt:"6 weeks ago", t:"Drove from Bundaberg. Worth every kilometre. They knew the prosecutor by name and had a clear plan before I'd even sat down properly."},
+    {nm:"Tegan F.", dt:"1 week ago", t:"Jack took my call at 9pm on a Sunday. Who does that? Got bail the next morning. Can't thank him enough."},
+    {nm:"Michael B.", dt:"3 weeks ago", t:"Very impressed with how quickly they responded and how thoroughly they explained my options. Got a no conviction result on a charge I thought was hopeless."},
+    {nm:"Priya N.", dt:"3 months ago", t:"Straightforward, no-fuss, fixed price. They told me what not to worry about — which turned out to be most of it. Huge relief."},
+    {nm:"Ben L.", dt:"2 weeks ago", t:"Will was prepared. So prepared that the other side folded half their case before lunch on the day. Outstanding."},
+  ];
+  const row2 = [
+    {nm:"Rob H.", dt:"4 weeks ago", t:"Second-time client — wish I wasn't, but I'm glad they were still here when I needed them again. Same professionalism, same plain English, same result."},
+    {nm:"Courtney M.", dt:"10 days ago", t:"I was absolutely terrified walking into court. Steven met me outside beforehand, walked me through what would happen, and it went exactly as he said it would."},
+    {nm:"James D.", dt:"5 weeks ago", t:"Russell handled my matter in the Gold Coast Magistrates Court. He knew the magistrate, knew the prosecutor, and got my licence back. Fixed fee, no surprises."},
+    {nm:"Alicia T.", dt:"2 months ago", t:"Called on a Thursday, in court on a Monday, charge dismissed by Wednesday. Belinda kept me updated the whole time. Incredible service."},
+    {nm:"Nathan G.", dt:"3 weeks ago", t:"I was convinced I'd lose my job over this. Jacob got it dealt with quietly and no conviction was recorded. Still can't believe it. Thank you."},
+    {nm:"Sarah-Jane K.", dt:"6 days ago", t:"As a nurse, a conviction would have ended my career. They understood the stakes and fought accordingly. No conviction recorded. I will never forget what they did for me."},
+    {nm:"Chris P.", dt:"7 weeks ago", t:"Called after midnight in a panic. They answered. That set the tone for everything that followed — calm, capable, and on my side the whole way."},
+    {nm:"Melissa O.", dt:"1 month ago", t:"Every single thing they told me would happen, happened exactly as they said. No drama, no confusion. Just a great result and a fixed price that was fair."},
+    {nm:"Dylan F.", dt:"2 weeks ago", t:"Braden represented me at Sunshine Coast. Young guy but absolutely sharp — knew the case inside out, made strong submissions and got the best possible outcome."},
+    {nm:"Karen W.", dt:"5 weeks ago", t:"Steven is the kind of lawyer you hope you never need but are incredibly grateful for when you do. Explained my options clearly, never judged me, got it done."},
+  ];
+  const initials = n => n.split(' ').map(s=>s[0]).join('').slice(0,2);
+  const hues = ["#2563C9","#132B5E","#E8641E","#1748A0","#C44E0F"];
+  function cardHTML(r,i){
+    return `<div class="card"><div class="top"><div class="who"><div class="av" style="background:${hues[i%hues.length]}">${initials(r.nm)}</div><div><div class="nm">${r.nm}</div><div class="dt">${r.dt}</div></div></div><div class="stars">★★★★★</div></div><blockquote>"${r.t}"</blockquote><div class="g">G · Google review</div></div>`;
+  }
+  function fill(id, items){
+    const el=document.getElementById(id);
+    el.innerHTML = items.concat(items).map(cardHTML).join('');
+  }
+  fill('track1', row1);
+  fill('track2', row2);
+
+  // TWEAKS wiring
+  const panel = document.getElementById('tweaks');
+  window.addEventListener('message', (e)=>{
+    const d=e.data||{};
+    if(d.type==='__activate_edit_mode'){ panel.classList.add('open'); panel.setAttribute('aria-hidden','false'); }
+    if(d.type==='__deactivate_edit_mode'){ panel.classList.remove('open'); panel.setAttribute('aria-hidden','true'); }
+  });
+  try{ window.parent.postMessage({type:'__edit_mode_available'}, '*'); }catch(e){}
+  function save(patch){
+    Object.assign(state, patch); applyState();
+    try{ window.parent.postMessage({type:'__edit_mode_set_keys', edits:patch},'*'); }catch(e){}
+  }
+  function wireSwatches(id,key){
+    const root=document.getElementById(id);
+    root.addEventListener('click',(e)=>{
+      const b=e.target.closest('.sw'); if(!b)return;
+      root.querySelectorAll('.sw').forEach(s=>s.classList.remove('active'));
+      b.classList.add('active');
+      save({[key]:b.dataset.c});
+    });
+    root.querySelectorAll('.sw').forEach(s=>{ if(s.dataset.c.toLowerCase()===state[key].toLowerCase()) s.classList.add('active'); });
+  }
+  wireSwatches('sw-accent','accent');
+  wireSwatches('sw-blue','blue');
+  document.getElementById('sel-hero').value=state.heroLayout;
+  document.getElementById('sel-hero').addEventListener('change',e=>save({heroLayout:e.target.value}));
+  document.getElementById('sel-sepia').value=state.sepia;
+  document.getElementById('sel-sepia').addEventListener('input',e=>save({sepia:+e.target.value}));
+
+  applyState();
+
+  // Leaflet map init
+  (function initMap(){
+    if (!window.L) return;
+    const c = document.getElementById('qld-map');
+    if (!c) return;
+    const map = L.map(c, {zoomControl:false, attributionControl:false, dragging:false, scrollWheelZoom:false, doubleClickZoom:false, touchZoom:false, boxZoom:false, keyboard:false, zoomSnap:0.25});
+    // Esri World Physical — natural green land + blue ocean
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}', {maxZoom:8}).addTo(map);
+    // Labels overlay for place names
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', {maxZoom:13, opacity:0.6}).addTo(map);
+    const offices = [
+      {n:'Hervey Bay', c:[-25.2882,152.8644], a:'b-r'},
+      {n:'Toowoomba', c:[-27.5598,151.9507], a:'b-l'},
+      {n:'Sunshine Coast', c:[-26.6600,153.0900], a:'b-r'},
+      {n:'North Brisbane', c:[-27.3280,152.9730], a:'b-r'},
+      {n:'Ipswich', c:[-27.6162,152.7609], a:'b-l'},
+      {n:'Brisbane', c:[-27.4700,153.0050], a:'b-c'},
+      {n:'Logan', c:[-27.7100,153.1500], a:'b-r'},
+      {n:'Gold Coast', c:[-28.0000,153.4200], a:'b-r'}
+    ];
+    const makeIcon = (n,a) => {
+      let ls = 'left:50%;transform:translateX(-50%)';
+      if (a==='b-l') ls = 'right:10px;left:auto';
+      if (a==='b-r') ls = 'left:10px;right:auto';
+      return L.divIcon({className:'',iconSize:[1,1],iconAnchor:[0,0],
+        html:`<div style="position:relative;transform:translate(-50%,-100%);pointer-events:none"><div style="position:absolute;bottom:18px;${ls};background:#132B5E;color:#fff;font-family:'Inter Tight',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.06em;padding:3px 9px;white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,.25)">${n}</div><div style="width:14px;height:14px;background:#E8641E;border:3px solid #fff;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.3);position:relative;z-index:2"></div></div>`});
+    };
+    offices.forEach(o => L.marker(o.c, {icon: makeIcon(o.n,o.a), interactive:false}).addTo(map));
+    map.fitBounds(L.latLngBounds(offices.map(o=>o.c)), {padding:[50,50]});
+  })();
+</script>
+</body>
+</html>
